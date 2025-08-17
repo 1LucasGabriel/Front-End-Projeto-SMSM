@@ -1,0 +1,42 @@
+<!--Listagem de seres em HTMLisson-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Funcionários</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 40px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f2f2f2; }
+        h2 { margin-top: 50px; }
+        a { display: block; margin-bottom: 20px; color: #007BFF; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>📋 Lista de Funcionários</h1>
+    <a href="/">⬅ Voltar ao Cadastro</a>
+
+    {% for cargo, funcionarios in dados.items() %}
+        <h2>{{ cargo }}</h2>
+        <table>
+            <tr>
+                <th>Nome Completo</th>
+                <th>Celular</th>
+                <th>Email Institucional</th>
+                <th>CRM</th>
+                <th>COREN</th>
+            </tr>
+            {% for f in funcionarios %}
+            <tr>
+                <td>{{ f[0] }}</td>
+                <td>{{ f[1] }}</td>
+                <td>{{ f[2] }}</td>
+                <td>{{ f[3] }}</td>
+                <td>{{ f[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</body>
+</html>
