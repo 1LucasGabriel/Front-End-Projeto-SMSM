@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.scss']
 })
 export class Login {
-  public email: string = '';
+  public usuario: string = '';
   public senha: string = '';
 
   enviarUsuario() {
-    console.log(this.email, this.senha);
+    console.log(this.usuario, this.senha);
   }
 }

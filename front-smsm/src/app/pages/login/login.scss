@@ -6,21 +6,27 @@ header {
 
 main {
     display: flex;
-
-    img {
-        max-height: 80px;
-        margin-top: 15px;
-        margin-left: 150px;
-    }
+    background-image: url("/images/background-login.jpg");
 
     article {
-        border-bottom: 3px solid #07C0EF;
+        border-bottom: 5px solid #07C0EF;
         background-color: #F0F3F8;
-        max-width: 500px;
-        margin: -25px auto auto auto;
+        width: 500px;
+        margin-top: -30px;
+        margin-left: 50%;
+        margin-bottom: 30px;
         font-family: 'Poppins';
         text-transform: uppercase;
         padding: 40px 25px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            max-height: 80px;
+            margin: auto;
+        }
 
         h1 {
             text-align: center;
@@ -38,7 +44,7 @@ main {
         section {
             display: flex;
             flex-direction: column;
-            max-width: 50%;
+            max-width: max-content;
             margin: 100px auto auto auto;
             gap: 15px;
 
@@ -48,20 +54,22 @@ main {
                 border: none;
                 border-radius: 5px;
                 color: #858585;
-                width: 230px;
+                width: 270px;
             }
 
             button {
                 margin-top: 20px;
-                padding: 8px;
+                padding: 10px;
                 background-color: #164060;
                 color: #07C0EF;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
-                margin-bottom: 100px;
+                margin-bottom: 60px;
                 text-transform: uppercase;
-                width: 230px;
+                width: 290px;
+                height: 40px;
+                font-weight: bold;
             }
         }
     }
