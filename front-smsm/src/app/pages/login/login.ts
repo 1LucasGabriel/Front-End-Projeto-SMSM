@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,20 @@ export class Login {
   public usuario: string = '';
   public senha: string = '';
 
-  enviarUsuario() {
+  constructor(
+    private router: Router
+  ) {}
+
+  public botao() {
+    this.enviarUsuario();
+    this.irParaHome();
+  }
+
+  public enviarUsuario() {
     console.log(this.usuario, this.senha);
+  }
+
+  public irParaHome() {
+    this.router.navigate(['/home']);
   }
 }

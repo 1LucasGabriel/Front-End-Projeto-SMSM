@@ -1,19 +1,22 @@
 header {
     background-color: #164060;
     color: black;
-    height: 80px;
+    height: 120px;
 }
 
 main {
     display: flex;
-    background-image: url("/images/background-login.jpg");
+    background-image: url("/images/fundi.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     article {
         border-bottom: 5px solid #07C0EF;
         background-color: #F0F3F8;
         width: 500px;
         margin-top: -30px;
-        margin-left: 50%;
+        margin-left: 55%;
         margin-bottom: 30px;
         font-family: 'Poppins';
         text-transform: uppercase;
@@ -70,6 +73,12 @@ main {
                 width: 290px;
                 height: 40px;
                 font-weight: bold;
+                transition: 0.2s;
+            }
+
+            button:hover {
+                color: white;
+                background-color: #0F65A2;
             }
         }
     }
