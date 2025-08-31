@@ -1,0 +1,123 @@
+header {
+    background-color: #164060;
+    height: 120px;
+    font-family: 'Poppins';
+    display: flex;
+
+    i {
+        color: white;
+        cursor: pointer;
+        font-size: 30px;
+        margin: auto 40px;
+    }
+
+    search {
+        margin: auto 10%;
+        form {
+            input {
+                text-transform: uppercase;
+                font-weight: bold;
+                color: white;
+                background-color: #04253E;
+                border: none;
+                border-radius: 5px;
+                padding: 8px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+main {
+    font-family: 'Poppins';
+    background: linear-gradient(rgba(185, 185, 185, 0.5), rgba(185, 185, 185, 0.5)),  url("/images/fundi.png") no-repeat center center;
+    background-size: cover;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    section {
+        background: white;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        box-shadow: 0px 5px 15px 5px rgba(58, 58, 58, 0.384);
+
+        article {
+            display: flex;
+            gap: 200px;
+            margin-bottom: 80px;
+
+            h1 {
+                text-transform: uppercase;
+                margin: auto 0;
+            }
+
+            p {
+                margin: auto 0;
+            }
+        }
+
+        table {
+            text-transform: uppercase;
+            border-spacing: 0 5px; 
+
+            thead {
+                th {
+                    text-align: start;
+                    padding: 12px;
+                }
+            }
+
+            tbody {
+                tr {
+                    background-color: #D9D9D9;
+
+                    td {
+                        padding: 12px;
+
+                        i.expandir {
+                            pointer-events: auto !important;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        p.legenda {
+            padding: 12px;
+        }
+
+        i.pendente {
+            color: red;
+        }
+
+        i.andamento {
+            color: yellow;
+        }
+
+        i.finalizado {
+            color: green;
+        }
+    }
+}
+
+
+.example-container {
+    height: 100%;
+}
+
+mat-drawer {
+    width: 250px; 
+    padding: 20px;
+    background: #f1f1f1;
+    border-radius: 0;
+
+    i {
+        font-size: 50px;
+        cursor: pointer;
+    }
+}
+

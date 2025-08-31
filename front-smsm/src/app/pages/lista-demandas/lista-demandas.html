@@ -1,0 +1,73 @@
+<header>
+    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
+    <search>
+        <form>
+            <input type="text" placeholder="Buscar...">
+        </form>
+    </search>
+</header>
+
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <i class="fa-solid fa-house"></i>
+        <i class="fa-regular fa-calendar"></i>
+        <i class="fa-regular fa-user"></i>
+        <i class="fa-solid fa-list"></i>
+        <i class="fa-solid fa-right-from-bracket"></i>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <main>
+            <section>
+                <article>
+                    <h1>Lista de Demandas | @Unidade</h1>
+                    <p>Marília, 27 de Agosto de 2025</p>
+                </article>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ordem</th>
+                            <th>Paciente</th>
+                            <th>Data de Solicitação</th>
+                            <th>Prioridade</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="pendente fa-solid fa-circle"></i></td>
+                            <td>120-2025</td>
+                            <td>José Monteiro Guedes Neto</td>
+                            <td>30/08/2025</td>
+                            <td>Alta</td>
+                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="pendente fa-solid fa-circle"></i></td>
+                            <td>120-2025</td>
+                            <td>Lucas Gabriel dos Santos Silva</td>
+                            <td>30/08/2025</td>
+                            <td>Baixa</td>
+                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
+                        </tr>
+                        <tr>
+                            <td><i class="finalizado fa-solid fa-circle"></i></td>
+                            <td>120-2025</td>
+                            <td>Victor Gaspareto</td>
+                            <td>30/08/2025</td>
+                            <td>Média</td>
+                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="legenda">
+                    <i class="pendente fa-solid fa-circle"></i> Pendente
+                    <i class="andamento fa-solid fa-circle"></i> Em Andamento
+                    <i class="finalizado fa-solid fa-circle"></i> Finalizado
+                </p>
+            </section>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>
