@@ -49,6 +49,8 @@ main {
                 height: 270px;
                 width: 270px;
                 display: flex;
+                pointer-events: auto !important;
+                cursor: pointer;
 
                 span {
                     text-transform: uppercase;
@@ -61,8 +63,6 @@ main {
 
             div.grande {
                 width: 570px;
-                pointer-events: auto !important;
-                cursor: pointer;
             }
         }
     }

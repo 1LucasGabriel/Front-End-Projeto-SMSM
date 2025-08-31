@@ -12,8 +12,7 @@ export class Home {
     private router: Router
   ) {}
 
-  public irParaSolicitacaoExame() {
-     console.log('Clique funcionando!');
-    this.router.navigate(['/solicitacao-exame']);
+  public irPara(rota: string[]) {
+    this.router.navigate(rota);
   }
 }
