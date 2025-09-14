@@ -36,16 +36,110 @@ body {
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body {
-  margin: 0;
-}
-
 html, body {
   height: 100vh;
 }
 
+
+//HEADER LOGIN
+header.login {
+  background-color: #164060;
+  height: 120px;
+  font-family: 'Poppins';
+  display: flex;
+}
+
+
+//HEADER GERAL
+header.geral {
+  background-color: #164060;
+  height: 120px;
+  font-family: 'Poppins';
+  display: flex;
+
+  i {
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    margin: auto 40px;
+  }
+
+  search {
+    margin: auto 10%;
+
+    form {
+      input {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        background-color: #04253E;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+
+//MENU LATERAL
 .mat-drawer-inner-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+mat-drawer {
+  width: 250px; 
+  padding: 20px;
+  background: #f1f1f1;
+  border-radius: 0;
+
+  aside {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    p {
+        font-size: 20px;
+    }
+
+    i {
+        font-size: 40px;
+        margin: auto 0;
+    }
+  }
+
+  aside:hover {
+    p {
+        color: #0F65A2;
+    }
+
+    i {
+        color: #0F65A2;
+    }
+  }
+}
+
+
+//MAIN PADRÃO
+main.padrao {
+  font-family: 'Poppins';
+  background: linear-gradient(rgba(185, 185, 185, 0.5), rgba(185, 185, 185, 0.5)),  url("/images/fundi.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+
+//SECTION PADRÃO
+section.padrao {
+  background: white;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  box-shadow: 0px 5px 15px 5px rgba(58, 58, 58, 0.384);
 }
