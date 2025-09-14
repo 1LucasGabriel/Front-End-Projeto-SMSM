@@ -3,12 +3,12 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { GenericService } from '../../services/generic-service';
 
 @Component({
-  selector: 'app-solicitacao-exame',
+  selector: 'app-solicitacoes',
   imports: [MatSidenavModule],
-  templateUrl: './solicitacao-exame.html',
-  styleUrl: './solicitacao-exame.scss'
+  templateUrl: './solicitacoes.html',
+  styleUrl: './solicitacoes.scss'
 })
-export class SolicitacaoExame {
+export class Solicitacoes {
   public data: string = '';
 
   constructor(
