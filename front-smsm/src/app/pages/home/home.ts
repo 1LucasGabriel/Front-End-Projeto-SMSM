@@ -1,18 +1,30 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { GenericService } from '../../services/generic-service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [MatSidenavModule],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home {
+
+  public data: string = '';
+
   constructor(
-    private router: Router
+    private genericService: GenericService
   ) {}
 
+  ngOnInit() {
+    this.buscarData();
+  }
+
   public irPara(rota: string[]) {
-    this.router.navigate(rota);
+    this.genericService.irPara(rota);
+  }
+
+  public buscarData() {
+    this.data = this.genericService.buscarData('Marília');
   }
 }

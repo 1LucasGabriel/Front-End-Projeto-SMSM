@@ -7,13 +7,42 @@
     </search>
 </header>
 
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
+<mat-drawer-container [hasBackdrop]="true">
     <mat-drawer #drawer mode="over">
-        <i class="fa-solid fa-house"></i>
-        <i class="fa-regular fa-calendar"></i>
-        <i class="fa-regular fa-user"></i>
-        <i class="fa-solid fa-list"></i>
-        <i class="fa-solid fa-right-from-bracket"></i>
+        <aside (click)="irPara(['/home'])">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-address-card"></i>
+            <p>Triagem</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-chart-pie"></i>
+            <p>Dashboards</p>
+        </aside>
+
+        <aside (click)="irPara(['/solicitacao-exame'])">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Solicitar</p>
+        </aside>
+
+        <aside (click)="irPara(['/lista-demandas'])">
+            <i class="fa-solid fa-list"></i>
+            <p>Demandas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-file"></i>
+            <p>Vagas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Sair</p>
+        </aside>
     </mat-drawer>
 
     <mat-drawer-content>
@@ -21,7 +50,7 @@
             <section>
                 <article>
                     <h1>Lista de Demandas | @Unidade</h1>
-                    <p>Marília, 27 de Agosto de 2025</p>
+                    <p>{{data}}</p>
                 </article>
 
                 <table>

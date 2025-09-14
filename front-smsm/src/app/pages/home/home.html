@@ -1,4 +1,5 @@
 <header>
+    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
     <search>
         <form>
             <input type="text" placeholder="Buscar...">
@@ -6,40 +7,85 @@
     </search>
 </header>
 
-<main>
-    <article>
-        <h1>Olá, Dr(a). @Nome_Do_Médico</h1>
-
-        <p>Marília, 27 de agosto de 2025</p>
-    </article>
-
-    <section>
-        <aside>
-            <div>
-                <span>Agenda</span>
-            </div>
-
-            <div>
-                <span>Lista de Atend.</span>
-            </div>
-
-            <div class="grande" (click)="irPara(['/solicitacao-exame'])">
-                <span>Solicitar Exame</span>
-            </div>
+<mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <aside (click)="irPara(['/home'])">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
         </aside>
 
         <aside>
-            <div class="grande" (click)="irPara(['/lista-demandas'])">
-                <span>Lista de Demandas</span>
-            </div>
-
-            <div>
-                <span>Vagas</span>
-            </div>
-
-            <div>
-                <span>Cidadão</span>
-            </div>
+            <i class="fa-solid fa-address-card"></i>
+            <p>Triagem</p>
         </aside>
-    </section>
-</main>
+
+        <aside>
+            <i class="fa-solid fa-chart-pie"></i>
+            <p>Dashboards</p>
+        </aside>
+
+        <aside (click)="irPara(['/solicitacao-exame'])">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Solicitar</p>
+        </aside>
+
+        <aside (click)="irPara(['/lista-demandas'])">
+            <i class="fa-solid fa-list"></i>
+            <p>Demandas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-file"></i>
+            <p>Vagas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Sair</p>
+        </aside>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <main>
+            <section>
+                <article>
+                    <h1>Olá, Dr(a). @Nome_Do_Médico</h1>
+
+                    <p>{{data}}</p>
+                </article>
+
+
+                <div class="divPrincipal">
+                    <aside>
+                        <div>
+                            <img src="images/triagem.png" height="160px" width="160px" alt="">
+                            <span>Triagem</span>
+                        </div>
+
+                        <div>
+                            <img src="images/dashboard.png" height="160px" width="160px" alt="">
+                            <span>Dashboards</span>
+                        </div>
+
+                        <div (click)="irPara(['/solicitacao-exame'])">
+                            <img src="images/solicitar-exame.png" height="160px" width="160px" alt="">
+                            <span>Solicitar Exame</span>
+                        </div>
+                    </aside>
+
+                    <aside>
+                        <div (click)="irPara(['/lista-demandas'])">
+                            <img src="images/lista-demandas.png" height="160px" width="160px" alt="">
+                            <span>Lista de Demandas</span>
+                        </div>
+
+                        <div>
+                            <img src="images/vagas.png" height="160px" width="160px" alt="">
+                            <span>Vagas</span>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>
