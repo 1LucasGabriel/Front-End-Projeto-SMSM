@@ -1,4 +1,5 @@
 <header class="geral">
+    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
     <search>
         <form>
             <input type="text" placeholder="Buscar...">
@@ -6,6 +7,102 @@
     </search>
 </header>
 
-<main>
-    
-</main>
+<mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <aside (click)="irPara(['/home'])">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-address-card"></i>
+            <p>Triagem</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-chart-pie"></i>
+            <p>Dashboards</p>
+        </aside>
+
+        <aside (click)="irPara(['/solicitacao-exame'])">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Solicitar</p>
+        </aside>
+
+        <aside (click)="irPara(['/lista-demandas'])">
+            <i class="fa-solid fa-list"></i>
+            <p>Demandas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-file"></i>
+            <p>Vagas</p>
+        </aside>
+
+        <aside (click)="irPara(['/login'])">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Sair</p>
+        </aside>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <main class="padrao">
+            <section class="padrao">
+                <article>
+                    <h1>Olá, Dr(a). @Nome_Do_Médico</h1>
+
+                    <p>{{data}}</p>
+                </article>
+
+
+
+                <h2>Nova Solicitação de Procedimento</h2>
+
+
+
+                <div class="linha">
+                    <label>Paciente</label>
+                    <input class="search" type="search" name="paciente" id="paciente" placeholder="Buscar por CPF ou CNS...">
+                    <i class="fa-solid fa-magnifying-glass lupa-icon"></i>
+                </div>
+
+                <div class="linha-unica">
+                    <p><strong>Nome:</strong> Maria de Souza</p>
+                    <p><strong>Data de Nascimento:</strong> 10/05/1980</p>
+                </div>
+
+
+
+                <div class="grupo">
+                    <div class="linha">
+                        <label>Procedimento</label>
+                        <input class="search" type="search" name="procedimento" id="procedimento" placeholder="Buscar por nome ou código...">
+                        <i class="fa-solid fa-magnifying-glass lupa-icon" style="top: 52%;"></i>
+                    </div>
+
+                    <div class="linha">
+                        <label>Prioridade</label>
+                        <div class="opcoes">
+                            <input class="checkbox" type="checkbox" name="prioridade" id="baixa">Baixa
+                            <input class="checkbox" type="checkbox" name="prioridade" id="normal">Normal
+                            <input class="checkbox" type="checkbox" name="prioridade" id="alta">Alta
+                        </div>
+
+                        <p><strong>Procedimento:</strong> Consulta Dermatológica - 123456</p>
+                    </div>
+                </div>
+
+
+
+                <div class="linha">
+                    <label>Justificativa Clínica (Obrigatória)</label>
+                    <textarea name="justificativa" id="justificativa"></textarea>
+                </div>
+
+
+
+                <button>Enviar Solicitação</button>
+            </section>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>

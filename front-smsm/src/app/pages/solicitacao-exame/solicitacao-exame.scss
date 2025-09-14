@@ -1,0 +1,99 @@
+main {
+    section {
+
+        article {
+            margin: auto;
+            display: flex;
+            gap: 410px;
+
+            p {
+                font-size: large;
+                margin: auto 0;
+            }
+        }
+
+        h2 {
+            margin: 50px auto;
+            text-transform: uppercase;
+            font-size: 35px;
+        }
+
+        div.linha {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+
+            label {
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            input.search {
+                padding: 15px 15px 15px 45px;
+                border-radius: 7px;
+                border: 2px solid rgb(228, 228, 228);
+                box-shadow: 0px 5px 5px -3px #aaa;
+                font-weight: bold;
+            }
+
+            i {
+                position: absolute;
+                left: 16px;
+                top: 66%;
+                transform: translateY(-50%);
+                color: #888;
+                pointer-events: none;
+                font-size: 20px;
+            }
+        }
+
+        div.linha-unica {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        div.grupo {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        div.linha {
+            textarea {
+                padding: 15px;
+                border-radius: 7px;
+                border: 2px solid rgb(228, 228, 228);
+                box-shadow: 0px 5px 5px -3px #aaa;
+                font-weight: bold;
+                min-height: 180px;
+                margin-bottom: 50px;
+            }
+        }
+
+        button {
+            background-color: #164060;
+            color: #07C0EF;
+            border: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Poppins';
+            letter-spacing: 2px;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: #0F65A2;
+        }
+    }
+}
+
+mat-drawer {
+    border-radius: 0;
+    width: 240px;
+}
