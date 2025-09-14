@@ -2,10 +2,11 @@ main {
     height: 100dvh;
 
     section {
+        width: 80vw;
 
         article {
             display: flex;
-            gap: 200px;
+            gap: 490px;
             margin-bottom: 80px;
 
             h1 {
@@ -66,4 +67,5 @@ main {
 
 mat-drawer {
     border-radius: 0;
+    width: 240px;
 }

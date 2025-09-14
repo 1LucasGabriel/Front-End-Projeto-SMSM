@@ -91,7 +91,6 @@ header.geral {
 }
 
 mat-drawer {
-  width: 250px; 
   padding: 20px;
   background: #f1f1f1;
   border-radius: 0;
@@ -103,12 +102,12 @@ mat-drawer {
     transition: 0.2s;
 
     p {
-        font-size: 20px;
+      font-size: 18px;
     }
 
     i {
-        font-size: 40px;
-        margin: auto 0;
+      font-size: 30px;
+      margin: auto 0;
     }
   }
 
@@ -142,4 +141,10 @@ section.padrao {
   flex-direction: column;
   padding: 50px;
   box-shadow: 0px 5px 15px 5px rgba(58, 58, 58, 0.384);
+}
+
+
+//MODAIS
+.mat-mdc-dialog-surface {
+  border-radius: 8px !important;
 }

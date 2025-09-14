@@ -27,8 +27,12 @@ export class ListaDemandas {
     this.buscarData();
   }
 
-  public openDialog(): void {
+  public openDialog() {
     const dialogRef = this.dialog.open(DetalheDemandaModal, {
+      width: '900px',
+      maxWidth: '95vw',
+      height: 'auto',
+      maxHeight: '90vh'
     });
   }
 

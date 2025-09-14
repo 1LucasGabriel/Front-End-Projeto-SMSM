@@ -1,0 +1,39 @@
+main {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    color: #222;
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 15px;
+        
+        i {
+            cursor: pointer;
+            font-size: 25px;
+        }
+    }
+
+    section {
+
+        p {
+            margin: 6px 0;
+            line-height: 1.5;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px 20px;
+            margin: 10px 0;
+        }
+    }
+}
