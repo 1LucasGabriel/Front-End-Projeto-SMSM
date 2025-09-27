@@ -3,6 +3,7 @@ import { Login } from './pages/login/login';
 import { Home } from './pages/home/home';
 import { Solicitacoes } from './pages/solicitacoes/solicitacoes';
 import { ListaDemandas } from './pages/lista-demandas/lista-demandas';
+import { Dashboards } from './pages/dashboards/dashboards';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -10,4 +11,5 @@ export const routes: Routes = [
     { path: 'home', component: Home},
     { path: 'solicitacoes', component: Solicitacoes},
     { path: 'lista-demandas', component: ListaDemandas},
+    { path: 'dashboards', component: Dashboards},
 ];
