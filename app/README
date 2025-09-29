@@ -1,0 +1,68 @@
+SISTEMA DE SAÚDE - API
+
+Este projeto é uma API desenvolvida com FastAPI para gerenciar usuários, unidades de saúde, solicitações de exames e consultas, além de agendamentos em vagas disponíveis. O sistema utiliza SQLite como banco de dados e SQLAlchemy como ORM.
+
+FUNCIONALIDADES
+
+Autenticação JWT: Cadastro e login de usuários com proteção de rotas.
+
+Gestão de Usuários: CRUD completo, com tipos de usuário: admin_global, admin_local, médico e paciente.
+
+Unidades de Saúde: Cadastro de unidades e associação de usuários.
+
+Solicitações: Pacientes podem criar, visualizar, atualizar e remover solicitações de consulta e exame.
+
+Agendamentos: Associa solicitações a vagas disponíveis, com controle de status.
+
+Vagas: Listagem e filtro de vagas por unidade, profissional, cidade, região e status.
+
+ESTRUTURA DE PASTAS
+
+main.py: Ponto de entrada da aplicação.
+
+core/: Configurações de banco de dados e segurança.
+
+models/: Modelos SQLAlchemy das entidades.
+
+schemas/: Schemas Pydantic para validação e resposta.
+
+endpoints/: Rotas da API organizadas por módulo.
+
+routers.py: Router principal da API.
+
+COMO EXECUTAR
+
+Instale as dependências:
+pip install -r app/requirements.txt
+
+Inicie o servidor:
+uvicorn app.main:app --reload
+
+Ou execute o comando disponível no arquivo iniciar.txt.
+
+Acesse a documentação interativa:
+http://localhost:8000/docs
+
+REQUISITOS
+
+Python 3.11 ou superior
+
+FastAPI
+
+Uvicorn
+
+SQLAlchemy
+
+Pydantic
+
+Passlib
+
+Python-Jose
+
+OBSERVAÇÕES
+
+O banco de dados é criado automaticamente ao iniciar o projeto.
+
+A autenticação é baseada em JWT para proteger rotas sensíveis.
+
+O controle de permissões é feito com base no tipo de usuário.
