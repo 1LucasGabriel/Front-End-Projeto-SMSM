@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.scss']
 })
 export class Login {
-  public usuario: string = '';
+  public cpf: string = '';
   public senha: string = '';
 
   constructor(
+    private authService: AuthService,
     private router: Router
   ) {}
 
-  public botao() {
-    this.enviarUsuario();
-    this.irParaHome();
-  }
-
-  public enviarUsuario() {
-    console.log(this.usuario, this.senha);
-  }
-
-  public irParaHome() {
-    this.router.navigate(['/home']);
+  public login() {
+    this.authService.login(this.cpf, this.senha).subscribe({
+      next: res => {
+        alert('Login realizado com sucesso!');
+        this.router.navigate(['/home']);
+      },
+      error: err => {
+        alert('CPF ou senha incorretos');
+      }
+    });
   }
 }
