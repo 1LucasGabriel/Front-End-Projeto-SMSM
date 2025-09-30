@@ -1,10 +1,13 @@
 <header class="geral">
     <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
-    <search>
+
+    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+
+    <!-- <search>
         <form>
             <input type="text" placeholder="Buscar...">
         </form>
-    </search>
+    </search> -->
 </header>
 
 <mat-drawer-container [hasBackdrop]="true">
@@ -101,7 +104,7 @@
 
 
 
-                <button>Enviar Solicitação</button>
+                <button (click)="irPara(['/home'])">Enviar Solicitação</button>
             </section>
         </main>
     </mat-drawer-content>

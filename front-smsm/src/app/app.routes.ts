@@ -4,6 +4,8 @@ import { Home } from './pages/home/home';
 import { Solicitacoes } from './pages/solicitacoes/solicitacoes';
 import { ListaDemandas } from './pages/lista-demandas/lista-demandas';
 import { Dashboards } from './pages/dashboards/dashboards';
+import { Vagas } from './pages/vagas/vagas';
+import { Triagem } from './pages/triagem/triagem';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -12,4 +14,6 @@ export const routes: Routes = [
     { path: 'solicitacoes', component: Solicitacoes},
     { path: 'lista-demandas', component: ListaDemandas},
     { path: 'dashboards', component: Dashboards},
+    { path: 'vagas', component: Vagas},
+    { path: 'triagem', component: Triagem},
 ];

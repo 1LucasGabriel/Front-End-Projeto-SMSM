@@ -1,0 +1,151 @@
+<header class="geral">
+    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
+
+    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+
+    <!-- <search>
+        <form>
+            <input type="text" placeholder="Buscar...">
+        </form>
+    </search> -->
+</header>
+
+<mat-drawer-container [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+        <aside (click)="irPara(['/home'])">
+            <i class="fa-solid fa-house"></i>
+            <p>Home</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-address-card"></i>
+            <p>Triagem</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-chart-pie"></i>
+            <p>Dashboards</p>
+        </aside>
+
+        <aside (click)="irPara(['/solicitacoes'])">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Solicitar</p>
+        </aside>
+
+        <aside (click)="irPara(['/lista-demandas'])">
+            <i class="fa-solid fa-list"></i>
+            <p>Demandas</p>
+        </aside>
+
+        <aside>
+            <i class="fa-solid fa-file"></i>
+            <p>Vagas</p>
+        </aside>
+
+        <aside (click)="irPara(['/login'])">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>Sair</p>
+        </aside>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <main class="padrao">
+            <section class="padrao">
+                <h3>Painel de Triagem - Hospital A - [Cardiologia]</h3>
+                <p>{{data}}</p>
+
+
+
+
+                <div class="principal">
+
+                <div class="legend-box" style="width: max-content; margin: auto;">
+                    <h3>Legenda</h3>
+                    <div style="display: flex;">
+                        <div class="legend-item">
+                            <span class="color-box yellow"></span>
+                            <span style="margin-right: 15px; font-size: 19px; text-transform: uppercase;">Pendente</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box blue"></span>
+                            <span style="margin-right: 15px; font-size: 19px; text-transform: uppercase;">Em atendimento</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box red"></span>
+                            <span style="margin-right: 15px; font-size: 19px; text-transform: uppercase;">Cancelado</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="color-box green"></span>
+                            <span style="font-size: 19px; text-transform: uppercase;">Finalizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                    <article style="border-top: 10px solid rgb(223, 189, 0);">
+                        <div class="info-demanda">
+                            <div class="cabecalho-demanda">
+                                <h5>Daniela Lima</h5>
+
+                                <div class="icon" style="margin-left: auto; background-color: rgb(17, 120, 255);">
+                                    <i class="fa-solid fa-bullhorn"></i>
+                                </div>
+
+                                <div class="icon" style="background-color: red">
+                                    <i class="fa-solid fa-x"></i>
+                                </div>
+
+                                <div class="icon" style="background-color: rgb(0, 161, 0);">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+
+                            <p><i>Eletrocardiograma</i></p>
+                            <p>10:30</p>
+                        </div>
+                    </article>
+
+                    <article style="border-top: 10px solid rgb(17, 120, 255);">
+                        <div class="info-demanda">
+                            <div class="cabecalho-demanda">
+                                <h5>Alberto Júnior</h5>
+
+                                <div class="icon" style="margin-left: auto; background-color: red">
+                                    <i class="fa-solid fa-x"></i>
+                                </div>
+
+                                <div class="icon" style="background-color: rgb(0, 161, 0);">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+                            </div>
+
+                            <p><i>Eletrocardiograma</i></p>
+                            <p>09:30</p>
+                        </div>
+                    </article>
+
+                    <article style="border-top: 10px solid red;">
+                        <div class="info-demanda">
+                            <div class="cabecalho-demanda">
+                                <h5>Célia Cristina</h5>
+                            </div>
+
+                            <p><i>Eletrocardiograma</i></p>
+                            <p>08:30</p>
+                        </div>
+                    </article>
+
+                    <article style="border-top: 10px solid rgb(0, 161, 0);">
+                        <div class="info-demanda">
+                            <div class="cabecalho-demanda">
+                                <h5>Jeferson Dantas</h5>
+                            </div>
+
+                            <p><i>Eletrocardiograma</i></p>
+                            <p>07:30</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,10 +1,13 @@
 <header class="geral">
     <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
-    <search>
+
+    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+
+    <!-- <search>
         <form>
             <input type="text" placeholder="Buscar...">
         </form>
-    </search>
+    </search> -->
 </header>
 
 <mat-drawer-container [hasBackdrop]="true">
@@ -14,12 +17,12 @@
             <p>Home</p>
         </aside>
 
-        <aside>
+        <aside (click)="irPara(['/triagem'])">
             <i class="fa-solid fa-address-card"></i>
             <p>Triagem</p>
         </aside>
 
-        <aside>
+        <aside (click)="irPara(['/dashboards'])">
             <i class="fa-solid fa-chart-pie"></i>
             <p>Dashboards</p>
         </aside>
@@ -34,7 +37,7 @@
             <p>Demandas</p>
         </aside>
 
-        <aside>
+        <aside (click)="irPara(['/vagas'])">
             <i class="fa-solid fa-file"></i>
             <p>Vagas</p>
         </aside>
@@ -49,7 +52,7 @@
         <main class="padrao">
             <section class="padrao">
                 <article>
-                    <h1>Olá, Dr(a). @Nome_Do_Médico</h1>
+                    <h1>Olá, {{nomeUsuario}}!</h1>
 
                     <p>{{data}}</p>
                 </article>
@@ -57,12 +60,12 @@
 
                 <div class="divPrincipal">
                     <aside>
-                        <div>
+                        <div (click)="irPara(['/triagem'])">
                             <img src="images/triagem.png" height="160px" width="160px" alt="">
                             <span>Triagem</span>
                         </div>
 
-                        <div>
+                        <div (click)="irPara(['/dashboards'])">
                             <img src="images/dashboard.png" height="160px" width="160px" alt="">
                             <span>Dashboards</span>
                         </div>
@@ -79,7 +82,7 @@
                             <span>Lista de Demandas</span>
                         </div>
 
-                        <div>
+                        <div (click)="irPara(['/vagas'])">
                             <img src="images/vagas.png" height="160px" width="160px" alt="">
                             <span>Vagas</span>
                         </div>

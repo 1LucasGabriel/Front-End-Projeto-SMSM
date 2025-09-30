@@ -11,6 +11,7 @@ import { GenericService } from '../../services/generic-service';
 export class Home {
 
   public data: string = '';
+  public nomeUsuario: string | null = '';
 
   constructor(
     private genericService: GenericService
@@ -18,6 +19,9 @@ export class Home {
 
   ngOnInit() {
     this.buscarData();
+    if (typeof window !== 'undefined') {
+      this.pegarNomeUsuario();
+    }
   }
 
   public irPara(rota: string[]) {
@@ -26,5 +30,9 @@ export class Home {
 
   public buscarData() {
     this.data = this.genericService.buscarData('Marília');
+  }
+
+  public pegarNomeUsuario() {
+    this.nomeUsuario = this.genericService.buscarNomeUsuario();
   }
 }

@@ -1,0 +1,156 @@
+main {
+    section {
+        width: 75%;
+
+        h3 {
+            margin: auto auto 50px auto;
+            font-size: 35px;
+        }
+
+        div.principal {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+
+            article {
+                background: #fff;
+                // border: 2px solid black;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                width: 280px;
+                width: 100%;
+                margin-bottom: 50px;
+                padding: 20px;
+
+                h4 {
+                    text-align: center;
+                    font-size: 25px;
+                }
+
+                div.card-paciente {
+                    border: 2px solid rgba(148, 148, 148, 0.726);
+                    border-radius: 5px;
+                    display: flex;
+                    padding: 10px;
+                    margin-bottom: 20px;
+
+                    label.custom-checkbox {
+                        margin: auto 0;
+                    }
+
+                    /* Esconde o checkbox real */
+                    .custom-checkbox input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    }
+
+                    /* Cria o "checkmark" */
+                    .custom-checkbox .checkmark {
+                    position: relative;
+                    height: 21px;
+                    width: 21px;
+                    background-color: #eee;
+                    border-radius: 4px; /* arredonda os cantos */
+                    display: inline-block;
+                    margin-right: 8px;
+                    vertical-align: middle;
+                    transition: 0.2s;
+                    }
+
+
+                    /* Quando o checkbox está checado */
+                    .custom-checkbox input:checked + .checkmark {
+                    background-color: #4caf50;
+                    }
+
+                    /* Criar o ícone do check */
+                    .custom-checkbox .checkmark:after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                    }
+
+                    /* Mostrar o check quando selecionado */
+                    .custom-checkbox input:checked + .checkmark:after {
+                    display: block;
+                    left: 6px;
+                    top: 2px;
+                    width: 6px;
+                    height: 12px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    }
+
+
+                    div.info-demanda {
+                        width: 100%;
+
+                        div.cabecalho-demanda {
+                            display: flex;
+                            // gap: 20px;
+
+                            h5 {
+                                font-size: 20px;
+                                margin: 0;
+                            }
+
+                            p {
+                                margin-left: auto;
+                                margin-top: 0;
+                                margin-right: 5px;
+                                text-align: right;
+                            }
+                        }
+
+                        p {
+                            margin: 0;
+                            margin-top: 5px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        div.filtro {
+            background: #fff;
+            // border: 2px solid black;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            margin-bottom: 50px;
+            padding: 20px;
+            display: flex;
+
+            button {
+                background-color: #164060;
+                color: #07C0EF;
+                border: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-family: 'Poppins';
+                letter-spacing: 2px;
+                border-radius: 8px;
+                padding: 20px;
+                cursor: pointer;
+                transition: 0.2s;
+                width: 75%;
+                margin-left: 50px;
+            }
+
+            button:hover {
+                color: white;
+                background-color: #0F65A2;
+            }
+        }
+
+    }
+}
+
+mat-drawer {
+    border-radius: 0;
+    width: 240px;
+}
+

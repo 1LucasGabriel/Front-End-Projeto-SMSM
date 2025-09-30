@@ -1,10 +1,15 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+
 <header class="geral">
     <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
-    <search>
+
+<h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+
+    <!-- <search>
         <form>
             <input type="text" placeholder="Buscar...">
         </form>
-    </search>
+    </search> -->
 </header>
 
 <mat-drawer-container [hasBackdrop]="true">
@@ -70,12 +75,25 @@
                     </aside>
 
                     <aside>
-                        <div class="demanda-especialidade">
-
+                        <div class="card">
+                            <h3 style="margin-bottom: 40px;">Demandas por Especialidade</h3>
+                            <div class="bars">
+                            <div class="bar" 
+                                *ngFor="let item of data2" 
+                                [style.height.%]="(item.value / maxValue()) * 100">
+                                <span class="value">{{ item.value }}p/dia</span>
+                                <span class="label">{{ item.label }}</span>
+                            </div>
+                            </div>
                         </div>
 
-                        <div class="comparecimento">
-
+                        <div class="card">
+                            <h3 style="margin-bottom: 40px;">Taxa de Comparecimento</h3>
+                            <div class="donut">
+                            <div class="circle" [style.--p]="porcentagem">
+                                <span class="percent">{{ porcentagem }}%</span>
+                            </div>
+                            </div>
                         </div>
                     </aside>
                 </div>

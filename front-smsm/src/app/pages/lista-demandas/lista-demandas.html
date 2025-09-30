@@ -1,10 +1,13 @@
 <header class="geral">
     <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
-    <search>
+
+    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+
+    <!-- <search>
         <form>
             <input type="text" placeholder="Buscar...">
         </form>
-    </search>
+    </search> -->
 </header>
 
 <mat-drawer-container [hasBackdrop]="true">
@@ -19,7 +22,7 @@
             <p>Triagem</p>
         </aside>
 
-        <aside>
+        <aside (click)="irPara(['/dashboards'])">
             <i class="fa-solid fa-chart-pie"></i>
             <p>Dashboards</p>
         </aside>
@@ -56,29 +59,38 @@
                 <aside>
                     <div class="filtro">
                         <label>Unidade</label>
-                        <select name="" id="">
-                            <option value="" disabled selected>Selecione</option>
+                        <select [(ngModel)]="filtroUnidade" (change)="onFiltroChange()">
+                        <option value="">Selecione</option>
+                        <option *ngFor="let u of unidades" [value]="u.id">{{u.nome}}</option>
                         </select>
                     </div>
 
                     <div class="filtro">
                         <label>Procedimento</label>
-                        <select name="" id="">
-                            <option value="" disabled selected>Selecione</option>
+                        <select [(ngModel)]="filtroProcedimento" (change)="onFiltroChange()">
+                        <option value="">Selecione</option>
+                        <option *ngFor="let p of procedimentos" [value]="p.id">{{p.nomeProcedimento}}</option>
                         </select>
                     </div>
 
                     <div class="filtro">
                         <label>Status</label>
-                        <select name="" id="">
-                            <option value="" disabled selected>Selecione</option>
+                        <select [(ngModel)]="filtroStatus" (change)="onFiltroChange()">
+                            <option value="">Selecione</option>
+                            <option>Pendente</option>
+                            <option>Em andamento</option>
+                            <option>Concluída</option>
                         </select>
                     </div>
 
                     <div class="filtro">
                         <label>Prioridade</label>
-                        <select name="" id="">
-                            <option value="" disabled selected>Selecione</option>
+                        <select [(ngModel)]="filtroPrioridade" (change)="onFiltroChange()">
+                        <option value="">Selecione</option>
+                        <option>Alta</option>
+                        <option>Média</option>
+                        <option>Baixa</option>
+                        <option>Urgente</option>
                         </select>
                     </div>
                 </aside>
@@ -87,15 +99,25 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Ordem</th>
+                            <!-- <th>Ordem</th> -->
                             <th>Paciente</th>
                             <th>Data de Solicitação</th>
                             <th>Prioridade</th>
-                            <th></th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let d of demandasFiltradas">
+                            <!-- <td>{{d.id}}</td> -->
+                            <td><i class="pendente fa-solid fa-circle"></i></td>
+                            <td>{{d.idPaciente}}</td>
+                            <td>{{d.dataSolicitacao}}</td>
+                            <td>{{d.prioridade}}</td>
+                            <td>{{d.status}}</td>
+                            <td><i (click)="openDialog(d)" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
+                        </tr>
+
+                        <!-- <tr>
                             <td><i class="pendente fa-solid fa-circle"></i></td>
                             <td>120-2025</td>
                             <td>José Monteiro Guedes Neto</td>
@@ -118,7 +140,7 @@
                             <td>30/08/2025</td>
                             <td>Média</td>
                             <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
                 <p class="legenda">

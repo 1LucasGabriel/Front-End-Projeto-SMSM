@@ -21,4 +21,12 @@ export class GenericService {
 
     return `${cidade}, ${dia} de ${mes} de ${ano}`;
   }
+
+  public buscarNomeUsuario() {
+    return localStorage.getItem('user');
+  }
+
+  public buscarIdUsuario() {
+    return localStorage.getItem('id');
+  }
 }
