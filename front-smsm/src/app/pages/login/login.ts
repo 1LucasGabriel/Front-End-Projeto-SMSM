@@ -22,7 +22,6 @@ export class Login {
   public login() {
     this.authService.login(this.cpf, this.senha).subscribe({
       next: res => {
-        alert('Login realizado com sucesso!');
         this.router.navigate(['/home']);
       },
       error: err => {

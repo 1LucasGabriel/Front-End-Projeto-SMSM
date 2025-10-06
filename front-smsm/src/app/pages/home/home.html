@@ -1,94 +1,97 @@
-<header class="geral">
-    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
+<main>
+    <aside class="header">
+        <h1 (click)="irPara(['/home'])">HealthFlow</h1>
+    </aside>
 
-    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
+    <div class="principal">
+        <section class="menu">
+            <div class="selecionado" (click)="irPara(['/home'])">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
 
-    <!-- <search>
-        <form>
-            <input type="text" placeholder="Buscar...">
-        </form>
-    </search> -->
-</header>
+            <div (click)="irPara(['/triagem'])">
+                <i class="fa-solid fa-address-card"></i>
+                <p>Triagem</p>
+            </div>
 
-<mat-drawer-container [hasBackdrop]="true">
-    <mat-drawer #drawer mode="over">
-        <aside (click)="irPara(['/home'])">
-            <i class="fa-solid fa-house"></i>
-            <p>Home</p>
-        </aside>
+            <div (click)="irPara(['/dashboards'])">
+                <i class="fa-solid fa-chart-pie"></i>
+                <p>Dashboards</p>
+            </div>
 
-        <aside (click)="irPara(['/triagem'])">
-            <i class="fa-solid fa-address-card"></i>
-            <p>Triagem</p>
-        </aside>
+            <div (click)="irPara(['/solicitacoes'])">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Solicitar</p>
+            </div>
 
-        <aside (click)="irPara(['/dashboards'])">
-            <i class="fa-solid fa-chart-pie"></i>
-            <p>Dashboards</p>
-        </aside>
+            <div (click)="irPara(['/lista-demandas'])">
+                <i class="fa-solid fa-list"></i>
+                <p>Demandas</p>
+            </div>
 
-        <aside (click)="irPara(['/solicitacoes'])">
-            <i class="fa-solid fa-envelope"></i>
-            <p>Solicitar</p>
-        </aside>
+            <div (click)="irPara(['/vagas'])">
+                <i class="fa-solid fa-file"></i>
+                <p>Vagas</p>
+            </div>
 
-        <aside (click)="irPara(['/lista-demandas'])">
-            <i class="fa-solid fa-list"></i>
-            <p>Demandas</p>
-        </aside>
+            <div (click)="irPara(['/login'])">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Sair</p>
+            </div>
+        </section>
 
-        <aside (click)="irPara(['/vagas'])">
-            <i class="fa-solid fa-file"></i>
-            <p>Vagas</p>
-        </aside>
+        <section class="conteudo">
+            <article>
+                <h1>Olá, {{nomeUsuario}}!</h1>
 
-        <aside (click)="irPara(['/login'])">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            <p>Sair</p>
-        </aside>
-    </mat-drawer>
+                <p>{{data}}</p>
+            </article>
 
-    <mat-drawer-content>
-        <main class="padrao">
-            <section class="padrao">
-                <article>
-                    <h1>Olá, {{nomeUsuario}}!</h1>
+            <div class="divPrincipal">
+                <aside>
+                    <div (click)="irPara(['/triagem'])">
+                        <img src="images/triagem.png" height="160px" width="160px" alt="">
+                        <span>Triagem</span>
+                    </div>
 
-                    <p>{{data}}</p>
-                </article>
+                    <div (click)="irPara(['/dashboards'])">
+                        <img src="images/dashboard.png" height="160px" width="160px" alt="">
+                        <span>Dashboards</span>
+                    </div>
 
+                    <div (click)="irPara(['/solicitacoes'])">
+                        <img src="images/solicitar-exame.png" height="160px" width="160px" alt="">
+                        <span>Solicitações</span>
+                    </div>
+                </aside>
 
-                <div class="divPrincipal">
-                    <aside>
-                        <div (click)="irPara(['/triagem'])">
-                            <img src="images/triagem.png" height="160px" width="160px" alt="">
-                            <span>Triagem</span>
-                        </div>
+                <aside>
+                    <div (click)="irPara(['/lista-demandas'])">
+                        <img src="images/lista-demandas.png" height="160px" width="160px" alt="">
+                        <span>Lista de Demandas</span>
+                    </div>
 
-                        <div (click)="irPara(['/dashboards'])">
-                            <img src="images/dashboard.png" height="160px" width="160px" alt="">
-                            <span>Dashboards</span>
-                        </div>
+                    <div (click)="irPara(['/vagas'])">
+                        <img src="images/vagas.png" height="160px" width="160px" alt="">
+                        <span>Vagas</span>
+                    </div>
+                </aside>
+            </div>
+        </section>  
 
-                        <div (click)="irPara(['/solicitacoes'])">
-                            <img src="images/solicitar-exame.png" height="160px" width="160px" alt="">
-                            <span>Solicitações</span>
-                        </div>
-                    </aside>
+        <section class="noticias">
+            <div>
+                <p>Home</p>
+            </div>
 
-                    <aside>
-                        <div (click)="irPara(['/lista-demandas'])">
-                            <img src="images/lista-demandas.png" height="160px" width="160px" alt="">
-                            <span>Lista de Demandas</span>
-                        </div>
+            <div>
+                <p>Triagem</p>
+            </div>
 
-                        <div (click)="irPara(['/vagas'])">
-                            <img src="images/vagas.png" height="160px" width="160px" alt="">
-                            <span>Vagas</span>
-                        </div>
-                    </aside>
-                </div>
-            </section>
-        </main>
-    </mat-drawer-content>
-</mat-drawer-container>
+            <div>
+                <p>Dashboards</p>
+            </div>
+        </section>
+    </div>
+</main>
