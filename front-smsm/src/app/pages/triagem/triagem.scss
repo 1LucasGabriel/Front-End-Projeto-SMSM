@@ -99,21 +99,54 @@ main {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
             width: 70%;
             padding: 30px;
+            overflow: scroll;
 
             h3 {
                 text-align: center;
                 font-size: 35px;
             }
 
+            div.busca {
+                display: flex;
+                padding: 10px 90px;
+                justify-content: space-between;
+
+                div.search-bar {
+                    background-color: rgb(243, 243, 243);
+                    border-radius: 8px;
+
+                    i {
+                        padding-left: 10px;
+                        font-size: 20px;
+                        background-color: rgb(243, 243, 243);
+                        border-radius: 8px;
+                    }
+
+                    input {
+                        border: none;
+                        background-color: rgb(243, 243, 243);
+                        border-radius: 8px;
+                        padding-left: 10px;
+                        height: 50px;
+                        font-family: 'Poppins';
+                        font-size: 17px;
+                        color: #444952;
+                    }
+                }
+            }
+
             table {
                 margin: auto;
+                border-collapse: separate;
+                border-spacing: 20px 30px; 
+
                 thead {
                     tr {
                         td {
                             background-color: #0F65A2;
                             text-align: center;
                             color: white;
-                            padding: 10px;
+                            padding: 20px 40px;
                             font-weight: bold;
                             font-size: 25px;
                             text-transform: uppercase;
@@ -126,8 +159,12 @@ main {
                 tbody {
                     tr {
                         td {
-                            font-size: 20px;
+                            font-size: 22px;
                             padding: 5px;
+
+                            i {
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
