@@ -98,6 +98,7 @@ main {
             margin-top: 3%;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
             width: 70%;
+            min-height: 85%;
             padding: 30px;
             overflow: scroll;
 
@@ -114,6 +115,7 @@ main {
                 div.search-bar {
                     background-color: rgb(243, 243, 243);
                     border-radius: 8px;
+                    border: 1px solid rgb(105, 105, 105);
 
                     i {
                         padding-left: 10px;
@@ -132,6 +134,16 @@ main {
                         font-size: 17px;
                         color: #444952;
                     }
+                }
+
+                select {
+                    width: 20%;
+                    border-radius: 8px;
+                    border: 1px solid rgb(105, 105, 105);
+                    background-color: rgb(243, 243, 243);
+                    font-size: 20px;
+                    font-family: 'Poppins';
+                    padding-left: 10px;
                 }
             }
 
