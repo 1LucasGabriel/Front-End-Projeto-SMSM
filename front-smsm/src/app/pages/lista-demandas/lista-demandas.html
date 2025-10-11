@@ -1,13 +1,7 @@
-<header class="geral">
+<!-- <header class="geral">
     <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
 
     <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
-
-    <!-- <search>
-        <form>
-            <input type="text" placeholder="Buscar...">
-        </form>
-    </search> -->
 </header>
 
 <mat-drawer-container [hasBackdrop]="true">
@@ -99,7 +93,6 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <!-- <th>Ordem</th> -->
                             <th>Paciente</th>
                             <th>Data de Solicitação</th>
                             <th>Prioridade</th>
@@ -108,7 +101,6 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let d of demandasFiltradas">
-                            <!-- <td>{{d.id}}</td> -->
                             <td><i class="pendente fa-solid fa-circle"></i></td>
                             <td>{{d.idPaciente}}</td>
                             <td>{{d.dataSolicitacao}}</td>
@@ -116,31 +108,6 @@
                             <td>{{d.status}}</td>
                             <td><i (click)="openDialog(d)" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
                         </tr>
-
-                        <!-- <tr>
-                            <td><i class="pendente fa-solid fa-circle"></i></td>
-                            <td>120-2025</td>
-                            <td>José Monteiro Guedes Neto</td>
-                            <td>30/08/2025</td>
-                            <td>Alta</td>
-                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
-                        </tr>
-                        <tr>
-                            <td><i class="pendente fa-solid fa-circle"></i></td>
-                            <td>120-2025</td>
-                            <td>Lucas Gabriel dos Santos Silva</td>
-                            <td>30/08/2025</td>
-                            <td>Baixa</td>
-                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
-                        </tr>
-                        <tr>
-                            <td><i class="finalizado fa-solid fa-circle"></i></td>
-                            <td>120-2025</td>
-                            <td>Victor Gaspareto</td>
-                            <td>30/08/2025</td>
-                            <td>Média</td>
-                            <td><i (click)="openDialog()" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
-                        </tr> -->
                     </tbody>
                 </table>
                 <p class="legenda">
@@ -151,4 +118,151 @@
             </section>
         </main>
     </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main>
+    <aside class="header">
+        <h1 (click)="irPara(['/home'])">HealthFlow</h1>
+    </aside>
+
+    <div class="principal">
+        <section class="menu">
+            <div (click)="irPara(['/home'])">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+
+            <div (click)="irPara(['/triagem'])">
+                <i class="fa-solid fa-address-card"></i>
+                <p>Triagem</p>
+            </div>
+
+            <div (click)="irPara(['/dashboards'])">
+                <i class="fa-solid fa-chart-pie"></i>
+                <p>Dashboards</p>
+            </div>
+
+            <div (click)="irPara(['/solicitacoes'])">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Solicitar</p>
+            </div>
+
+            <div class="selecionado" (click)="irPara(['/lista-demandas'])">
+                <i class="fa-solid fa-list"></i>
+                <p>Demandas</p>
+            </div>
+
+            <div (click)="irPara(['/vagas'])">
+                <i class="fa-solid fa-file"></i>
+                <p>Vagas</p>
+            </div>
+
+            <div (click)="irPara(['/login'])">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Sair</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <h3>Lista de Demandas - @Unidade</h3>
+
+            <div class="busca">
+                <div>
+                    <label>Unidade</label>
+                    <select>
+                        <option value="">Teste 1</option>
+                        <option value="">Teste 2</option>
+                        <option value="">Teste 3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Procedimento</label>
+                    <select>
+                        <option value="">Teste 1</option>
+                        <option value="">Teste 2</option>
+                        <option value="">Teste 3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Prioridade</label>
+                    <select>
+                        <option value="">Teste 1</option>
+                        <option value="">Teste 2</option>
+                        <option value="">Teste 3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Status</label>
+                    <select>
+                        <option value="">Teste 1</option>
+                        <option value="">Teste 2</option>
+                        <option value="">Teste 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Paciente</td>
+                        <td>Data de Solicitação</td>
+                        <td>Prioridade</td>
+                        <td>Status</td>
+                        <td>Ações</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Daniela Lima</td>
+                        <td>25/09/2025 14:12</td>
+                        <td>Alta</td>
+                        <td style="color: rgb(223, 189, 0);">Pendente</td>
+                        <td style="text-align: center;">
+                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Daniela Lima</td>
+                        <td>25/09/2025 14:12</td>
+                        <td>Média</td>
+                        <td style="color: rgb(17, 120, 255);">Em atendimento</td>
+                        <td style="text-align: center;">
+                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Daniela Lima</td>
+                        <td>25/09/2025 14:12</td>
+                        <td>Baixa</td>
+                        <td style="color: rgb(0, 160, 13);">Concluído</td>
+                        <td style="text-align: center;">
+                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>
