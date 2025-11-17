@@ -1,0 +1,15 @@
+<mat-dialog-content class="dialog-content">
+    <article>
+        <span></span>
+        <span><i class="fa-solid fa-xmark" (click)="fecharModal()"></i></span>
+    </article>
+
+  <h2 class="dialog-title">Cancelar consulta</h2>
+  <p class="dialog-text">
+    Deseja cancelar a consulta de <strong>{{ item.pacienteNome }}</strong> ?
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-flat-button color="primary" cdkFocusInitial (click)="atualizarAgendamento()">Cancelar</button>
+</mat-dialog-actions>
