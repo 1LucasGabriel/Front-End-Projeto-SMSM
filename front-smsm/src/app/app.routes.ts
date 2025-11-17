@@ -6,14 +6,17 @@ import { ListaDemandas } from './pages/lista-demandas/lista-demandas';
 import { Dashboards } from './pages/dashboards/dashboards';
 import { Vagas } from './pages/vagas/vagas';
 import { Triagem } from './pages/triagem/triagem';
+import { AuthGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
+
     { path: 'login', component: Login},
-    { path: 'home', component: Home},
-    { path: 'solicitacoes', component: Solicitacoes},
-    { path: 'lista-demandas', component: ListaDemandas},
-    { path: 'dashboards', component: Dashboards},
-    { path: 'vagas', component: Vagas},
-    { path: 'triagem', component: Triagem},
+
+    { path: 'home', component: Home, canActivate: [AuthGuard]},
+    { path: 'solicitacoes', component: Solicitacoes, canActivate: [AuthGuard]},
+    { path: 'lista-demandas', component: ListaDemandas, canActivate: [AuthGuard]},
+    { path: 'dashboards', component: Dashboards, canActivate: [AuthGuard]},
+    { path: 'vagas', component: Vagas, canActivate: [AuthGuard]},
+    { path: 'triagem', component: Triagem, canActivate: [AuthGuard]},
 ];
