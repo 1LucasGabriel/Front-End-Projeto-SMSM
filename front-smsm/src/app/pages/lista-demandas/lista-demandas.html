@@ -1,141 +1,3 @@
-<!-- <header class="geral">
-    <i class="fa-solid fa-bars" (click)="drawer.toggle()" [style.cursor]="'pointer'"></i>
-
-    <h2 style="color: white; margin: auto 0; font-size: 40px;">HealthFlow</h2>
-</header>
-
-<mat-drawer-container [hasBackdrop]="true">
-    <mat-drawer #drawer mode="over">
-        <aside (click)="irPara(['/home'])">
-            <i class="fa-solid fa-house"></i>
-            <p>Home</p>
-        </aside>
-
-        <aside>
-            <i class="fa-solid fa-address-card"></i>
-            <p>Triagem</p>
-        </aside>
-
-        <aside (click)="irPara(['/dashboards'])">
-            <i class="fa-solid fa-chart-pie"></i>
-            <p>Dashboards</p>
-        </aside>
-
-        <aside (click)="irPara(['/solicitacoes'])">
-            <i class="fa-solid fa-envelope"></i>
-            <p>Solicitar</p>
-        </aside>
-
-        <aside (click)="irPara(['/lista-demandas'])">
-            <i class="fa-solid fa-list"></i>
-            <p>Demandas</p>
-        </aside>
-
-        <aside>
-            <i class="fa-solid fa-file"></i>
-            <p>Vagas</p>
-        </aside>
-
-        <aside (click)="irPara(['/login'])">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            <p>Sair</p>
-        </aside>
-    </mat-drawer>
-
-    <mat-drawer-content>
-        <main class="padrao">
-            <section class="padrao">
-                <article>
-                    <h1>Lista de Demandas | @Unidade</h1>
-                    <p>{{data}}</p>
-                </article>
-
-                <aside>
-                    <div class="filtro">
-                        <label>Unidade</label>
-                        <select [(ngModel)]="filtroUnidade" (change)="onFiltroChange()">
-                        <option value="">Selecione</option>
-                        <option *ngFor="let u of unidades" [value]="u.id">{{u.nome}}</option>
-                        </select>
-                    </div>
-
-                    <div class="filtro">
-                        <label>Procedimento</label>
-                        <select [(ngModel)]="filtroProcedimento" (change)="onFiltroChange()">
-                        <option value="">Selecione</option>
-                        <option *ngFor="let p of procedimentos" [value]="p.id">{{p.nomeProcedimento}}</option>
-                        </select>
-                    </div>
-
-                    <div class="filtro">
-                        <label>Status</label>
-                        <select [(ngModel)]="filtroStatus" (change)="onFiltroChange()">
-                            <option value="">Selecione</option>
-                            <option>Pendente</option>
-                            <option>Em andamento</option>
-                            <option>Concluída</option>
-                        </select>
-                    </div>
-
-                    <div class="filtro">
-                        <label>Prioridade</label>
-                        <select [(ngModel)]="filtroPrioridade" (change)="onFiltroChange()">
-                        <option value="">Selecione</option>
-                        <option>Alta</option>
-                        <option>Média</option>
-                        <option>Baixa</option>
-                        <option>Urgente</option>
-                        </select>
-                    </div>
-                </aside>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Paciente</th>
-                            <th>Data de Solicitação</th>
-                            <th>Prioridade</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let d of demandasFiltradas">
-                            <td><i class="pendente fa-solid fa-circle"></i></td>
-                            <td>{{d.idPaciente}}</td>
-                            <td>{{d.dataSolicitacao}}</td>
-                            <td>{{d.prioridade}}</td>
-                            <td>{{d.status}}</td>
-                            <td><i (click)="openDialog(d)" class="expandir fa-solid fa-up-right-and-down-left-from-center"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="legenda">
-                    <i class="pendente fa-solid fa-circle"></i> Pendente
-                    <i class="andamento fa-solid fa-circle"></i> Em Andamento
-                    <i class="finalizado fa-solid fa-circle"></i> Finalizado
-                </p>
-            </section>
-        </main>
-    </mat-drawer-content>
-</mat-drawer-container> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <main>
     <aside class="header">
         <h1 (click)="irPara(['/home'])">HealthFlow</h1>
@@ -148,74 +10,89 @@
                 <p>Home</p>
             </div>
 
-            <div (click)="irPara(['/triagem'])">
-                <i class="fa-solid fa-address-card"></i>
-                <p>Triagem</p>
-            </div>
+            @if (usuario.idPerfil === 1 || usuario.idPerfil === 2) {
+                <div (click)="irPara(['/triagem'])">
+                    <i class="fa-solid fa-address-card"></i>
+                    <p>Triagem</p>
+                </div>
+            }
 
-            <div (click)="irPara(['/dashboards'])">
-                <i class="fa-solid fa-chart-pie"></i>
-                <p>Dashboards</p>
-            </div>
+            @if (usuario.idPerfil === 1) {
+                <div (click)="irPara(['/dashboards'])">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <p>Dashboards</p>
+                </div>
+            }
 
-            <div (click)="irPara(['/solicitacoes'])">
-                <i class="fa-solid fa-envelope"></i>
-                <p>Solicitar</p>
-            </div>
+            @if (usuario.idPerfil === 1 || usuario.idPerfil === 2) {
+                <div (click)="irPara(['/solicitacoes'])">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>Solicitar</p>
+                </div>
+            }
 
-            <div class="selecionado" (click)="irPara(['/lista-demandas'])">
-                <i class="fa-solid fa-list"></i>
-                <p>Demandas</p>
-            </div>
+            @if (usuario.idPerfil === 1) {
+                <div class="selecionado" (click)="irPara(['/lista-demandas'])">
+                    <i class="fa-solid fa-list"></i>
+                    <p>Demandas</p>
+                </div>
+            }
 
-            <div (click)="irPara(['/vagas'])">
-                <i class="fa-solid fa-file"></i>
-                <p>Vagas</p>
-            </div>
 
-            <div (click)="irPara(['/login'])">
+            @if (usuario.idPerfil === 1) {
+                <div (click)="irPara(['/vagas'])">
+                    <i class="fa-solid fa-file"></i>
+                    <p>Vagas</p>
+                </div>
+            }
+
+            <div (click)="sair()">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <p>Sair</p>
             </div>
         </section>
 
         <section class="conteudo">
-            <h3>Lista de Demandas - @Unidade</h3>
+            <h3>Lista de Demandas - {{ nomeUnidadeSelecionada }}</h3>
 
             <div class="busca">
                 <div>
                     <label>Unidade</label>
-                    <select>
-                        <option value="">Teste 1</option>
-                        <option value="">Teste 2</option>
-                        <option value="">Teste 3</option>
+                    <select [(ngModel)]="filtros.unidade" (change)="aplicarFiltros()">
+                        <option value="" disabled selected>Selecione uma unidade</option>
+                        @for (item of unidades; track $index) {
+                            <option [ngValue]="item.id">{{item.nome}}</option>
+                        }
                     </select>
                 </div>
 
-                <div>
+                <!-- <div>
                     <label>Procedimento</label>
-                    <select>
-                        <option value="">Teste 1</option>
-                        <option value="">Teste 2</option>
-                        <option value="">Teste 3</option>
+                    <select [(ngModel)]="filtros.procedimento" (change)="aplicarFiltros()">
+                        <option value="" disabled selected>Selecione um procedimento</option>
+                        @for (item of procedimentos; track $index) {
+                            <option [ngValue]="item.id">{{item.codigoProcedimento}} - {{item.nomeProcedimento}}</option>
+                        }
                     </select>
-                </div>
+                </div> -->
 
                 <div>
                     <label>Prioridade</label>
-                    <select>
-                        <option value="">Teste 1</option>
-                        <option value="">Teste 2</option>
-                        <option value="">Teste 3</option>
+                    <select [(ngModel)]="filtros.prioridade" (change)="aplicarFiltros()">
+                        <option value="" disabled selected>Selecione uma prioridade</option>
+                        <option [ngValue]="'Baixa'">Baixa</option>
+                        <option [ngValue]="'Normal'">Normal</option>
+                        <option [ngValue]="'Alta'">Alta</option>
                     </select>
                 </div>
 
                 <div>
                     <label>Status</label>
-                    <select>
-                        <option value="">Teste 1</option>
-                        <option value="">Teste 2</option>
-                        <option value="">Teste 3</option>
+                    <select [(ngModel)]="filtros.status" (change)="aplicarFiltros()">
+                        <option value="" disabled selected>Selecione um status</option>
+                        <option [ngValue]="'Pendente'">Pendente</option>
+                        <option [ngValue]="'Agendado'">Agendado</option>
+                        <option [ngValue]="'Concluído'">Concluído</option>
                     </select>
                 </div>
             </div>
@@ -227,40 +104,18 @@
                         <td>Data de Solicitação</td>
                         <td>Prioridade</td>
                         <td>Status</td>
-                        <td>Ações</td>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>Daniela Lima</td>
-                        <td>25/09/2025 14:12</td>
-                        <td>Alta</td>
-                        <td style="color: rgb(223, 189, 0);">Pendente</td>
-                        <td style="text-align: center;">
-                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Daniela Lima</td>
-                        <td>25/09/2025 14:12</td>
-                        <td>Média</td>
-                        <td style="color: rgb(17, 120, 255);">Em atendimento</td>
-                        <td style="text-align: center;">
-                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Daniela Lima</td>
-                        <td>25/09/2025 14:12</td>
-                        <td>Baixa</td>
-                        <td style="color: rgb(0, 160, 13);">Concluído</td>
-                        <td style="text-align: center;">
-                            <i class="expandir fa-solid fa-up-right-and-down-left-from-center"></i>
-                        </td>
-                    </tr>
+                    @for (item of demandasFiltradas; track $index) {
+                        <tr>
+                            <td>{{item.pacienteNome}}</td>
+                            <td>{{item.dataSolicitacao | date:'dd/MM/yyyy HH:mm'}}</td>
+                            <td>{{item.prioridade}}</td>
+                            <td [ngStyle]="{'color': getStatusColor(item.status)}">{{item.status}}</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </section>

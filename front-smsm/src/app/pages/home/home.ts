@@ -12,6 +12,7 @@ export class Home {
 
   public data: string = '';
   public nomeUsuario: string | null = '';
+  public perfil: string | null = '';
 
   constructor(
     private genericService: GenericService
@@ -21,6 +22,7 @@ export class Home {
     this.buscarData();
     if (typeof window !== 'undefined') {
       this.pegarNomeUsuario();
+      this.buscarPerfilUsuario();
     }
   }
 
@@ -34,5 +36,13 @@ export class Home {
 
   public pegarNomeUsuario() {
     this.nomeUsuario = this.genericService.buscarNomeUsuario();
+  }
+
+  public sair() {
+    this.genericService.logout();
+  }
+
+  public buscarPerfilUsuario() {
+    this.perfil = this.genericService.getPerfil();
   }
 }

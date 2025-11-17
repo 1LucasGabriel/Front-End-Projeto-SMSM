@@ -29,6 +29,10 @@ export class AuthService {
           if (res?.userId) {
             localStorage.setItem('id', res.userId);
           }
+
+          if (res?.perfil) {
+            localStorage.setItem('perfil', res.perfil);
+          }
         })
       );
   }

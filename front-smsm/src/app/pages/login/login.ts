@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class Login {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   public login() {
@@ -25,7 +27,10 @@ export class Login {
         this.router.navigate(['/home']);
       },
       error: err => {
-        alert('CPF ou senha incorretos');
+        this.snackBar.open('CPF ou senha incorretos', 'Fechar', {
+          duration: 3500,
+          panelClass: ['snackbar-error']
+        });
       }
     });
   }

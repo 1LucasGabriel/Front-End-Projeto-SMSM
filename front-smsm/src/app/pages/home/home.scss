@@ -94,8 +94,7 @@ main {
         section.conteudo {
             background-color: white;
             border-radius: 12px;
-            margin-left: 2%;
-            margin-top: 3%;
+            margin: auto;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
             width: 65%;
             padding: 30px;
@@ -126,6 +125,7 @@ main {
                         pointer-events: auto !important;
                         cursor: pointer;
                         transition: 0.2s;
+                        border-radius: 10px;
 
                         img {
                             margin: auto;

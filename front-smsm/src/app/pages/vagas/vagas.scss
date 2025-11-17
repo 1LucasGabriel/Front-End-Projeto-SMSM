@@ -1,128 +1,243 @@
 main {
-    section {
-        width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("/images/fundi.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100dvh;
+    max-width: 100%;
+    position: relative; 
+    z-index: 0; 
+    font-family: 'Poppins';
+    padding-bottom: 100px;
 
-        h3 {
-            margin: auto auto 50px auto;
-            font-size: 35px;
+    aside.header {
+        background-color: #0F65A2;
+        width: 100%;
+        min-height: 15%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+        display: flex;
+        padding-left: 50px;
+
+        h1 {
+            margin: auto 0;
+            color: white;
+            font-size: 60px;
+            cursor: pointer;
         }
+    }
 
-        div.principal {
-            display: flex;
-            flex-direction: row;
-            gap: 50px;
+    div.principal {
+        display: flex;
+        gap: 2%;
 
-            article {
-                background: #fff;
-                // border: 2px solid black;
+        section.menu {
+            background-color: white;
+            margin-left: 2%;
+            margin-top: 3%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+            width: 6.5%;
+            transition: width 0.3s ease;
+            overflow: hidden;
+
+            div {
+                display: flex;
+                gap: 30px;
+                padding: 25px;
+                cursor: pointer;
                 border-radius: 12px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                width: 280px;
-                width: 100%;
-                margin-bottom: 50px;
-                padding: 20px;
+                width: 40%;
+                margin: 15px 0 15px 15px;
+                transition: 0.2s;
+                transition: width 0.3s ease;
 
-                h4 {
-                    text-align: center;
-                    font-size: 25px;
+                i {
+                    font-size: 40px;
                 }
 
-                div.card-paciente {
-                    border: 2px solid rgba(148, 148, 148, 0.726);
-                    border-radius: 5px;
-                    display: flex;
-                    padding: 10px;
-                    margin-bottom: 20px;
-
-                    label.custom-checkbox {
-                        margin: auto 0;
-                    }
-
-                    /* Esconde o checkbox real */
-                    .custom-checkbox input {
-                    position: absolute;
+                p {
+                    margin: auto 0;
+                    font-size: 20px;
                     opacity: 0;
-                    cursor: pointer;
+                    transition: opacity 0.2s ease;
+                }
+            }
+
+            div:hover {
+                background-color: rgb(237, 237, 237);
+            }
+
+            div.selecionado {
+                background-color: #0F65A2;
+                color: white;
+            }
+
+            div.selecionado:hover {
+                background-color: #164060;
+            }
+        }
+
+        section.menu:hover {
+            width: 18%;
+        }
+
+        section.menu:hover div {
+            width: 60%;
+        }
+
+        section.menu:hover div p {
+            opacity: 1;
+        }
+
+        section.conteudo {
+            background-color: white;
+            border-radius: 12px;
+            margin: auto;
+            margin-top: 3%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+            width: 67%;
+            min-height: 85%;
+            padding: 30px;
+            overflow: scroll;
+
+            h3 {
+                text-align: center;
+                font-size: 35px;
+            }
+
+            div.principal {
+                display: flex;
+                flex-direction: row;
+                gap: 50px;
+
+                article {
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    width: 280px;
+                    width: 100%;
+                    margin-bottom: 50px;
+                    padding: 20px;
+
+                    h4 {
+                        text-align: center;
+                        font-size: 25px;
                     }
 
-                    /* Cria o "checkmark" */
-                    .custom-checkbox .checkmark {
-                    position: relative;
-                    height: 21px;
-                    width: 21px;
-                    background-color: #eee;
-                    border-radius: 4px; /* arredonda os cantos */
-                    display: inline-block;
-                    margin-right: 8px;
-                    vertical-align: middle;
-                    transition: 0.2s;
-                    }
+                    div.card-paciente {
+                        border: 2px solid rgba(148, 148, 148, 0.726);
+                        border-radius: 5px;
+                        display: flex;
+                        padding: 10px;
+                        margin-bottom: 20px;
+
+                        label.custom-checkbox {
+                            margin: auto 0;
+                        }
+
+                        .custom-checkbox input {
+                            position: absolute;
+                            opacity: 0;
+                            cursor: pointer;
+                        }
+
+                        .custom-checkbox .checkmark {
+                            position: relative;
+                            height: 21px;
+                            width: 21px;
+                            background-color: #eee;
+                            border-radius: 4px;
+                            display: inline-block;
+                            margin-right: 8px;
+                            vertical-align: middle;
+                            transition: 0.2s;
+                        }
+
+                        .custom-checkbox input:checked + .checkmark {
+                            background-color: #4caf50;
+                        }
+
+                        .custom-checkbox .checkmark:after {
+                        content: "";
+                            position: absolute;
+                            display: none;
+                        }
+
+                        .custom-checkbox input:checked + .checkmark:after {
+                            display: block;
+                            left: 6px;
+                            top: 2px;
+                            width: 6px;
+                            height: 12px;
+                            border: solid white;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                        }
 
 
-                    /* Quando o checkbox está checado */
-                    .custom-checkbox input:checked + .checkmark {
-                    background-color: #4caf50;
-                    }
+                        div.info-demanda {
+                            width: 100%;
 
-                    /* Criar o ícone do check */
-                    .custom-checkbox .checkmark:after {
-                    content: "";
-                    position: absolute;
-                    display: none;
-                    }
+                            div.cabecalho-demanda {
+                                display: flex;
 
-                    /* Mostrar o check quando selecionado */
-                    .custom-checkbox input:checked + .checkmark:after {
-                    display: block;
-                    left: 6px;
-                    top: 2px;
-                    width: 6px;
-                    height: 12px;
-                    border: solid white;
-                    border-width: 0 2px 2px 0;
-                    transform: rotate(45deg);
-                    }
+                                h5 {
+                                    font-size: 20px;
+                                    margin: 0;
+                                }
 
-
-                    div.info-demanda {
-                        width: 100%;
-
-                        div.cabecalho-demanda {
-                            display: flex;
-                            // gap: 20px;
-
-                            h5 {
-                                font-size: 20px;
-                                margin: 0;
+                                p {
+                                    margin-left: auto;
+                                    margin-top: 0;
+                                    margin-right: 5px;
+                                    text-align: right;
+                                }
                             }
 
                             p {
-                                margin-left: auto;
-                                margin-top: 0;
-                                margin-right: 5px;
-                                text-align: right;
+                                margin: 0;
+                                margin-top: 5px;
+                                font-size: 16px;
                             }
-                        }
-
-                        p {
-                            margin: 0;
-                            margin-top: 5px;
-                            font-size: 16px;
                         }
                     }
                 }
             }
-        }
 
-        div.filtro {
-            background: #fff;
-            // border: 2px solid black;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            width: 100%;
-            margin-bottom: 50px;
-            padding: 20px;
-            display: flex;
+            div.filtro {
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                padding: 20px 18px 20px 0;
+                display: flex;
+                gap: 100px;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    label {
+                        font-weight: bold;
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
+
+                    select, input {
+                        width: 100%;
+                        height: 50px;
+                        border-radius: 8px;
+                        border: 1px solid rgb(105, 105, 105);
+                        background-color: rgb(243, 243, 243);
+                        font-size: 20px;
+                        font-family: 'Poppins';
+                        padding-left: 10px;
+                    }
+                }
+
+            }
 
             button {
                 background-color: #164060;
@@ -136,8 +251,7 @@ main {
                 padding: 20px;
                 cursor: pointer;
                 transition: 0.2s;
-                width: 75%;
-                margin-left: 50px;
+                width: 100%;
             }
 
             button:hover {
@@ -145,12 +259,18 @@ main {
                 background-color: #0F65A2;
             }
         }
-
     }
 }
 
-mat-drawer {
-    border-radius: 0;
-    width: 240px;
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(202, 202, 202, 0.4); 
+    backdrop-filter: blur(5px); 
+    z-index: -1; 
 }
 

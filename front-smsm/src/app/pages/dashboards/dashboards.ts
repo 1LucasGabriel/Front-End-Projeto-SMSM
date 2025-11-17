@@ -40,4 +40,7 @@ export class Dashboards {
     this.data = this.genericService.buscarData('Marília');
   }
 
+  public sair() {
+    this.genericService.logout();
+  }
 }
