@@ -1,0 +1,59 @@
+<main>
+    <aside class="header">
+        <h1 (click)="irPara(['/home'])">HealthFlow</h1>
+    </aside>
+
+    <div class="principal">
+        <section class="menu">
+            <div (click)="irPara(['/home'])">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+
+            <div class="selecionado" (click)="irPara(['/historico-usuario'])">
+                <i class="fa-solid fa-file"></i>
+                <p>Histórico</p>
+            </div>
+
+            <div (click)="sair()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Sair</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <article>
+                <h1>Olá, {{usuario.nome}}</h1>
+            </article>
+
+            <!-- @for (item of demandas; track $index) { -->
+                <div class="demanda" style="border-color: rgb(202, 183, 8);;">
+                    <div class="cabecalho">
+                        <h2>Consulta Cardiologia - Dr Fabrício</h2>
+                        <p>15/12/2025</p>
+                    </div>
+
+                    <p>Paciente com dor no peito.</p>
+                </div>
+
+                <div class="demanda" style="border-color: rgb(202, 183, 8);">
+                    <div class="cabecalho">
+                        <h2>Consulta Nutricional - Dra Mônica</h2>
+                        <p>10/12/2025</p>
+                    </div>
+
+                    <p>Paciente necessita de um acompanhamento alimentar.</p>
+                </div>
+
+                <div class="demanda" style="border-color: green;">
+                    <div class="cabecalho">
+                        <h2>Consulta Cardiologia - Dr Fabrício</h2>
+                        <p>15/12/2025</p>
+                    </div>
+
+                    <p>Paciente com dor no peito.</p>
+                </div>
+            <!-- } -->
+        </section>
+    </div>
+</main>

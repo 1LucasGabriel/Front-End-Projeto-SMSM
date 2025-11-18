@@ -116,6 +116,8 @@ export class Triagem {
   }
 
   public chamarPacienteModal(item: AgendamentoCompostoModel) {
+    if (!this.podeClicar(item.statusComparecimento, 'chamar')) return;
+    
     this.dialog.open(ChamarPacienteModal, {
       width: '900px',
       data: item
@@ -123,6 +125,8 @@ export class Triagem {
   }
 
   public cancelarConsultaModal(item: AgendamentoCompostoModel) {
+    if (!this.podeClicar(item.statusComparecimento, 'cancelar')) return;
+
     this.dialog.open(CancelarConsultaModal, {
       width: '900px',
       data: item
@@ -130,12 +134,23 @@ export class Triagem {
   }
 
   public concluirAgendamentoModal(item: AgendamentoCompostoModel) {
+    if (!this.podeClicar(item.statusComparecimento, 'confirmar')) return;
+
     this.dialog.open(ConcluirConsultaModal, {
       width: '900px',
       data: item
     });
   }
 
+  public podeClicar(status: string, icon: 'chamar' | 'cancelar' | 'confirmar') {
+    status = status.toLowerCase();
+
+    if (status === 'cancelado') return false;
+
+    if (status === 'em andamento' && icon === 'chamar') return false;
+
+    return true;
+  }
 
   public irPara(rota: string[]) {
     this.genericService.irPara(rota);

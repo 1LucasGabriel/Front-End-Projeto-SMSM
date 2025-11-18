@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { PacienteModel } from '../models/paciente-model';
 import { tap } from 'rxjs';
 import { ProcedimentoModel } from '../models/procedimento-model';
-import { DemandaModel } from '../models/demanda-model';
+import { DemandaModel, DemandaPorEspecialidadeModel } from '../models/demanda-model';
 import { UsuarioModel } from '../models/usuario-model';
 import { UnidadeModel } from '../models/unidade-model';
 import { VagaComUnidadeModel } from '../models/vaga-model';
@@ -111,6 +111,24 @@ export class GenericService {
 
   public getAgendamentoComposto() {
     return this.http.get<AgendamentoCompostoModel[]>(`${this.baseUrlAgendamento}/buscarcomposto`)
+      .pipe(
+        tap(res => {
+          return res;
+        })
+      );
+  }
+
+  public getAgendamento() {
+    return this.http.get<AgendamentoModel[]>(`${this.baseUrlAgendamento}/buscar`)
+      .pipe(
+        tap(res => {
+          return res;
+        })
+      );
+  }
+
+  public getDemandaPorEspecialidade() {
+    return this.http.get<DemandaPorEspecialidadeModel[]>(`${this.baseUrlDemanda}/demanda-especialidade`)
       .pipe(
         tap(res => {
           return res;

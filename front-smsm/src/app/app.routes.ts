@@ -7,6 +7,7 @@ import { Dashboards } from './pages/dashboards/dashboards';
 import { Vagas } from './pages/vagas/vagas';
 import { Triagem } from './pages/triagem/triagem';
 import { AuthGuard } from './guards/auth-guard';
+import { HistoricoUsuario } from './pages/historico-usuario/historico-usuario';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,4 +20,5 @@ export const routes: Routes = [
     { path: 'dashboards', component: Dashboards, canActivate: [AuthGuard]},
     { path: 'vagas', component: Vagas, canActivate: [AuthGuard]},
     { path: 'triagem', component: Triagem, canActivate: [AuthGuard]},
+    { path: 'historico-usuario', component: HistoricoUsuario, canActivate: [AuthGuard]},
 ];

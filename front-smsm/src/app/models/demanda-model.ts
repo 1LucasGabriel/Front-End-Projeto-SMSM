@@ -11,3 +11,8 @@ export interface DemandaModel {
     status: string,
     justificativa: string
 }
+
+export interface DemandaPorEspecialidadeModel {
+    label: string, 
+    value: number
+}
