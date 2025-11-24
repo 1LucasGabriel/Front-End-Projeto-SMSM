@@ -134,6 +134,27 @@ main {
                         font-family: 'Poppins';
                         padding-left: 10px;
                     }
+
+                    button {
+                        background-color: #0F65A2;
+                        color: white;
+                        border: none;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        font-family: 'Poppins';
+                        letter-spacing: 2px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        font-size: 18px;
+                        height: 50px;
+                        margin-top: auto;
+                    }
+
+                    button:hover {
+                        color: white;
+                        background-color: #164060;
+                    }
                 }
                 
             }

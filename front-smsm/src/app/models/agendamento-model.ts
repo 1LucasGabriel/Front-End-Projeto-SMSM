@@ -17,5 +17,7 @@ export interface AgendamentoCompostoModel {
     dataRealizacao: Date | string,
     statusComparecimento: string,
     pacienteNome: string,
-    procedimentoNome: string
+    procedimentoNome: string,
+    medicoNome: string,
+    justificativa: string
 }
