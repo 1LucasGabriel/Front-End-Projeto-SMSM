@@ -13,7 +13,21 @@
 
             <label>Senha:</label>
             <input type="password" placeholder="Digite sua senha aqui..." [(ngModel)]="senha">
-            
+
+            <div class="user-type-selector">
+                <button 
+                    [class.active]="tipoUsuario === 'funcionario'"
+                    (click)="tipoUsuario = 'funcionario'">
+                    Funcionário
+                </button>
+
+                <button 
+                    [class.active]="tipoUsuario === 'paciente'"
+                    (click)="tipoUsuario = 'paciente'">
+                    Paciente
+                </button>
+            </div>
+
             <button (click)="login()">Acessar</button>
         </div>
     </section>

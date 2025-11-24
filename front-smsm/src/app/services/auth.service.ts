@@ -12,29 +12,42 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(cpf: string, senha: string) {
+  loginFuncionario(cpf: string, senha: string) {
     return this.http.post<any>(`${this.baseUrl}/login`, { cpf, senha })
       .pipe(
         tap(res => {
-          console.log("Resposta login:", res);
-
-          if (res?.token) {
-            localStorage.setItem(this.tokenKey, res.token);
-          }
-
-          if (res?.nome) {
-            localStorage.setItem(this.userKey, res.nome);
-          }
-
-          if (res?.userId) {
-            localStorage.setItem('id', res.userId);
-          }
-
-          if (res?.perfil) {
-            localStorage.setItem('perfil', res.perfil);
-          }
+          this.processarLogin(res);
         })
       );
+  }
+
+  loginPaciente(cpf: string, senha: string) {
+    return this.http.post<any>(`${this.baseUrl}/login/paciente`, { cpf, senha })
+      .pipe(
+        tap(res => {
+          this.processarLogin(res);
+        })
+      );
+  }
+
+  private processarLogin(res: any) {
+    console.log("Resposta login:", res);
+
+    if (res?.token) {
+      localStorage.setItem(this.tokenKey, res.token);
+    }
+
+    if (res?.nome) {
+      localStorage.setItem(this.userKey, res.nome);
+    }
+
+    if (res?.userId) {
+      localStorage.setItem('id', res.userId);
+    }
+
+    if (res?.perfil) {
+      localStorage.setItem('perfil', res.perfil);
+    }
   }
 
   logout() {
@@ -78,8 +91,8 @@ export class AuthService {
     }
   }
 
-    getUsuarioById(id: number) {
-    return this.http.get<any>(`https://localhost:7188/api/usuario/buscarporid/${id}`)
+  getUsuarioById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/api/usuario/buscarporid/${id}`)
       .pipe(
         tap(res => {
           console.log("Resposta get user:", res);

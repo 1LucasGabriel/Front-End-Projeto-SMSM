@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class Login {
   public cpf: string = '';
   public senha: string = '';
+  public tipoUsuario: 'funcionario' | 'paciente' = 'funcionario';
 
   constructor(
     private authService: AuthService,
@@ -22,7 +23,20 @@ export class Login {
   ) {}
 
   public login() {
-    this.authService.login(this.cpf, this.senha).subscribe({
+    if (!this.cpf || !this.senha) {
+      this.snackBar.open('Preencha CPF e senha', 'Fechar', {
+        duration: 3000,
+        panelClass: ['snackbar-error']
+      });
+      return;
+    }
+
+    const request =
+      this.tipoUsuario === 'funcionario'
+        ? this.authService.loginFuncionario(this.cpf, this.senha)
+        : this.authService.loginPaciente(this.cpf, this.senha);
+
+    request.subscribe({
       next: res => {
         this.router.navigate(['/home']);
       },
