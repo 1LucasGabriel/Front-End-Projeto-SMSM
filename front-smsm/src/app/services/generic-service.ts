@@ -8,7 +8,7 @@ import { DemandaModel, DemandaPorEspecialidadeModel } from '../models/demanda-mo
 import { UsuarioModel } from '../models/usuario-model';
 import { UnidadeModel } from '../models/unidade-model';
 import { VagaComUnidadeModel } from '../models/vaga-model';
-import { AgendamentoCompostoModel, AgendamentoModel } from '../models/agendamento-model';
+import { AgendamentoCompostoModel, AgendamentoFilaModel, AgendamentoModel } from '../models/agendamento-model';
 
 @Injectable({
   providedIn: 'root'
@@ -147,6 +147,15 @@ export class GenericService {
 
   public putAgendamento(id: number, agendamento: AgendamentoModel) {
     return this.http.put<any>(`${this.baseUrlAgendamento}/atualizar${id}`, agendamento)
+      .pipe(
+        tap(res => {
+          return res;
+        })
+      );
+  }
+
+  public getAgendamentoFila(id: number) {
+    return this.http.get<AgendamentoFilaModel[]>(`${this.baseUrlAgendamento}/fila/posicao/${id}`)
       .pipe(
         tap(res => {
           return res;

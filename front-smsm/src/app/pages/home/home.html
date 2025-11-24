@@ -52,6 +52,13 @@
                 </div>
             }
 
+            @if (perfil === '3') {
+                <div (click)="irPara(['/fila-paciente'])">
+                    <i class="fa-solid fa-calendar"></i>
+                    <p>Fila</p>
+                </div>
+            }
+
             <div (click)="sair()">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <p>Sair</p>
@@ -108,6 +115,13 @@
                         <div (click)="irPara(['/historico-usuario'])">
                             <img src="images/vagas.png" height="160px" width="160px" alt="">
                             <span>Histórico</span>
+                        </div>
+                    }
+
+                    @if (perfil === '3') {
+                        <div (click)="irPara(['/fila-paciente'])">
+                            <img src="images/fila.png" height="160px" width="160px" alt="">
+                            <span>Fila</span>
                         </div>
                     }
                 </aside>

@@ -1,0 +1,63 @@
+<main>
+    <aside class="header">
+        <h1 (click)="irPara(['/home'])">HealthFlow</h1>
+    </aside>
+
+    <div class="principal">
+        <section class="menu">
+            <div (click)="irPara(['/home'])">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+
+            <div (click)="irPara(['/historico-usuario'])">
+                <i class="fa-solid fa-file"></i>
+                <p>Histórico</p>
+            </div>
+
+            <div class="selecionado" (click)="irPara(['/fila-paciente'])">
+                <i class="fa-solid fa-calendar"></i>
+                <p>Fila</p>
+            </div>
+
+            <div (click)="sair()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p>Sair</p>
+            </div>
+        </section>
+
+        <section class="conteudo">
+            <article>
+                <h1>Olá, {{usuario.nome}}</h1>
+            </article>
+
+            @if (fila.length > 0) {
+                @for (item of fila; track $index) {
+                    <section class="fila-card">
+                        <h2>{{ item.procedimentoNome }}</h2>
+
+                        <div class="info-row">
+                            <p><strong>Médico:</strong> {{ item.medicoNome }}</p>
+                        </div>
+
+                        <p class="justificativa">
+                            <strong>Justificativa clínica:</strong><br>
+                            {{ item.justificativa }}
+                        </p>
+
+                        <div class="fila-status">
+                            <div class="posicao">#{{ item.posicao }}</div>
+                            <p>de {{ item.totalNaFila }} na fila</p>
+                        </div>
+                    </section>
+                }
+            }
+
+            @else {
+                <section class="sem-fila">
+                    <p>Você não possui nenhuma fila ativa no momento.</p>
+                </section>
+            }
+        </section>
+    </div>
+</main>

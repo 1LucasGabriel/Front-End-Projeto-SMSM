@@ -21,3 +21,13 @@ export interface AgendamentoCompostoModel {
     medicoNome: string,
     justificativa: string
 }
+
+export interface AgendamentoFilaModel {
+    idPaciente: number,
+    pacienteNome: string,
+    procedimentoNome: string,
+    justificativa: string,
+    medicoNome: string,
+    posicao: number,
+    totalNaFila: number
+}

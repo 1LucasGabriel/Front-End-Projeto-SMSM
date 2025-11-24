@@ -1,0 +1,215 @@
+main {
+    display: flex;
+    flex-direction: column;
+    background-image: url("/images/fundi.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100dvh;
+    max-height: auto;
+    max-width: 100%;
+    position: relative; 
+    z-index: 0; 
+    font-family: 'Poppins';
+    padding-bottom: 100px;
+
+    aside.header {
+        background-color: #0F65A2;
+        width: 100%;
+        height: 150px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+        display: flex;
+        padding-left: 50px;
+
+        h1 {
+            margin: auto 0;
+            color: white;
+            font-size: 60px;
+            cursor: pointer;
+        }
+    }
+
+    div.principal {
+        display: flex;
+        gap: 2%;
+
+        section.menu {
+            background-color: white;
+            margin-left: 2%;
+            margin-top: 3%;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+            width: 6.5%;
+            transition: width 0.3s ease;
+            overflow: hidden;
+
+            div {
+                display: flex;
+                gap: 30px;
+                padding: 25px;
+                cursor: pointer;
+                border-radius: 12px;
+                width: 40%;
+                margin: 15px 0 15px 15px;
+                transition: 0.2s;
+                transition: width 0.3s ease;
+
+                i {
+                    font-size: 40px;
+                }
+
+                p {
+                    margin: auto 0;
+                    font-size: 20px;
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
+                }
+            }
+
+            div:hover {
+                background-color: rgb(237, 237, 237);
+            }
+
+            div.selecionado {
+                background-color: #0F65A2;
+                color: white;
+            }
+
+            div.selecionado:hover {
+                background-color: #164060;
+            }
+        }
+
+        section.menu:hover {
+            width: 18%;
+        }
+
+        section.menu:hover div {
+            width: 60%;
+        }
+
+        section.menu:hover div p {
+            opacity: 1;
+        }
+
+        section.conteudo {
+            background-color: white;
+            border-radius: 12px;
+            margin: auto;
+            margin-top: 3%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
+            width: 70%;
+            min-height: 85%;
+            padding: 30px;
+            overflow: scroll;
+
+            h3 {
+                text-align: center;
+                font-size: 35px;
+            }
+
+            article {
+              margin: auto;
+              display: flex;
+              justify-content: space-between;
+
+              p {
+                  font-size: large;
+                  margin: auto 0;
+              }
+            }
+
+            .fila-card {
+                background: white;
+                padding: 25px;
+                border-radius: 18px;
+                box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+                border-left: 6px solid #0066ff;
+                animation: aparecer 0.3s ease;
+                margin-bottom: 50px;
+            }
+
+            .fila-card h2 {
+                margin: 0;
+                font-size: 25px;
+                color: #0066ff;
+                margin-bottom: 15px;
+            }
+
+            .info-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+
+            .justificativa {
+                background: #f7f7f7bb;
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-left: 4px solid #0066ff;
+            }
+
+            .fila-status {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin: 20px 0;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+
+            .posicao {
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: #0066ff;
+                padding: 10px 22px;
+                border-radius: 14px;
+            }
+
+            .data-solicitacao {
+                font-size: 0.9rem;
+                color: #555;
+            }
+
+            .sem-fila {
+                text-align: center;
+                margin-top: 50px;
+                font-size: 1.1rem;
+                color: #666;
+            }
+
+            @keyframes aparecer {
+                from { opacity: 0; transform: translateY(8px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+
+            /* Responsivo */
+            @media (max-width: 600px) {
+                .info-row {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                .posicao {
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(202, 202, 202, 0.4); 
+  backdrop-filter: blur(5px); 
+  z-index: -1; 
+}

@@ -9,6 +9,7 @@ import { Triagem } from './pages/triagem/triagem';
 import { AuthGuard } from './guards/auth-guard';
 import { HistoricoUsuario } from './pages/historico-usuario/historico-usuario';
 import { Historico } from './pages/historico/historico';
+import { FilaPaciente } from './pages/fila-paciente/fila-paciente';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,4 +24,5 @@ export const routes: Routes = [
     { path: 'triagem', component: Triagem, canActivate: [AuthGuard]},
     { path: 'historico-usuario', component: HistoricoUsuario, canActivate: [AuthGuard]},
     { path: 'historico', component: Historico, canActivate: [AuthGuard]},
+    { path: 'fila-paciente', component: FilaPaciente, canActivate: [AuthGuard]},
 ];
