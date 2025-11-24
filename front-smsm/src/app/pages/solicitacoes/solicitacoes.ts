@@ -99,12 +99,18 @@ export class Solicitacoes {
       this.pacientes = value;
     })
   }
-  
+
   public filtrarPacientes() {
     const termo = this.searchTerm.toLowerCase();
-    this.sugestoes = this.pacientes.filter(p =>
-      p.nome.toLowerCase().includes(termo) || p.cns.includes(termo)
-    );
+    if (!termo || termo.length < 1) { 
+        this.sugestoes = [];
+        return;
+    }
+    this.sugestoes = this.pacientes.filter(p => {
+      const nomeLower = p.nome.toLowerCase();
+      const cnsLower = String(p.cns).toLowerCase();
+      return nomeLower.includes(termo) || cnsLower.includes(termo);
+    });
   }
 
   public selecionarPaciente(paciente: PacienteModel) {
@@ -113,19 +119,23 @@ export class Solicitacoes {
     this.sugestoes = [];
   }
 
-
-
   public buscarProcedimentos() {
     this.genericService.getProcedimentos().subscribe((value) => {
       this.procedimentos = value;
     })
   }
-  
+
   public filtrarProcedimentos() {
-    const termo = this.searchTerm.toLowerCase();
-    this.sugestoesProcedimento = this.procedimentos.filter(p =>
-      p.nomeProcedimento.toLowerCase().includes(termo) || p.codigoProcedimento.includes(termo)
-    );
+    const termo = this.searchTermProcedimento.toLowerCase();
+    if (!termo || termo.length < 1) { 
+        this.sugestoesProcedimento = [];
+        return;
+    }
+    this.sugestoesProcedimento = this.procedimentos.filter(p => {
+        const nomeLower = p.nomeProcedimento.toLowerCase();
+        const codigoLower = String(p.codigoProcedimento).toLowerCase();
+        return nomeLower.includes(termo) || codigoLower.includes(termo);
+    });
   }
 
   public selecionarProcedimento(procedimento: ProcedimentoModel) {
@@ -142,8 +152,6 @@ export class Solicitacoes {
       this.solicitacao.prioridade = '';
     }
   }
-
-
 
   public enviarSolicitacao() {
     this.solicitacao.idPaciente = this.pacienteSelecionado?.id ?? 0;
