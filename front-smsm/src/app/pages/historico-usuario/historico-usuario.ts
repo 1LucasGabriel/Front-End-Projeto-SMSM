@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import { GenericService } from '../../services/generic-service';
-import { UsuarioModel } from '../../models/usuario-model';
-import { DemandaModel } from '../../models/demanda-model';
+import { PacienteModel } from '../../models/paciente-model';
+import { AgendamentoCompostoModel } from '../../models/agendamento-model';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-historico-usuario',
-  imports: [],
+  imports: [DatePipe, CommonModule],
   templateUrl: './historico-usuario.html',
   styleUrl: './historico-usuario.scss'
 })
 export class HistoricoUsuario {
-  public usuario: UsuarioModel = {
+  public usuario: PacienteModel = {
     id: 0,
     nome: '',
     cpf: '',
-    senha: '',
-    idUnidadeSaude: 0,
-    idPerfil: 0
+    cns: '',
+    dataNascimento: '',
+    endereco: ''
   }
-  public demandas: DemandaModel[] = [];
+  public agendamentos: AgendamentoCompostoModel[] = [];
 
   constructor(
     private genericService: GenericService
@@ -26,24 +27,39 @@ export class HistoricoUsuario {
 
   ngOnInit() {
     this.buscarUsuarioLogado();
-    this.buscarDemandasUsuario();
   }
 
   public buscarUsuarioLogado() {
-    this.genericService.getUsuarioById(Number(this.genericService.buscarIdUsuario()))
+    this.genericService.getPacienteById(Number(this.genericService.buscarIdUsuario()))
       .subscribe((value) => {
         this.usuario = value;
+        this.buscarDemandasUsuario();
       });
   }
 
   public buscarDemandasUsuario() {
-    this.genericService.getDemandas().subscribe((value) => {
+    this.genericService.getAgendamentoComposto().subscribe((value) => {
       value.forEach(element => {
-        if (element.idPaciente == this.usuario.id) {
-          this.demandas.push(element);
+        if (element.pacienteNome === this.usuario.nome) {
+          this.agendamentos.push(element);
         }
       });
     });
+  }
+
+  public getStatusColor(status: string) {
+    switch(status.toLowerCase()) {
+      case 'pendente':
+        return 'yellow';
+      case 'em andamento':
+        return 'blue';
+      case 'concluído':
+        return 'green';
+      case 'cancelado':
+        return 'red';
+      default:
+        return 'black';
+    }
   }
 
   public irPara(rota: string[]) {

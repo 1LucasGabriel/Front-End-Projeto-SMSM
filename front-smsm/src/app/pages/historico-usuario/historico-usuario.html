@@ -15,6 +15,11 @@
                 <p>Histórico</p>
             </div>
 
+            <div (click)="irPara(['/fila-paciente'])">
+                <i class="fa-solid fa-calendar"></i>
+                <p>Fila</p>
+            </div>
+
             <div (click)="sair()">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <p>Sair</p>
@@ -26,34 +31,30 @@
                 <h1>Olá, {{usuario.nome}}</h1>
             </article>
 
-            <!-- @for (item of demandas; track $index) { -->
-                <div class="demanda" style="border-color: rgb(202, 183, 8);;">
+            @for (item of agendamentos; track $index) {
+                <!-- <div class="demanda" [ngStyle]="{'border-color': getStatusColor(item.statusComparecimento)}">
                     <div class="cabecalho">
-                        <h2>Consulta Cardiologia - Dr Fabrício</h2>
-                        <p>15/12/2025</p>
+                        <h2>{{item.procedimentoNome}} - {{item.medicoNome}}</h2>
+                        <p>{{item.dataRealizacao | date:'dd/MM/yyyy HH:mm'}}</p>
                     </div>
 
-                    <p>Paciente com dor no peito.</p>
-                </div>
+                    <p>{{item.justificativa}}.</p>
+                </div> -->
 
-                <div class="demanda" style="border-color: rgb(202, 183, 8);">
-                    <div class="cabecalho">
-                        <h2>Consulta Nutricional - Dra Mônica</h2>
-                        <p>10/12/2025</p>
+                <section class="fila-card" [ngStyle]="{'border-color': getStatusColor(item.statusComparecimento)}">
+                    <h2>{{ item.procedimentoNome }}</h2>
+
+                    <div class="info-row">
+                        <p><strong>Médico:</strong> {{ item.medicoNome }}</p>
+                        <p><strong>Data:</strong> {{ item.dataRealizacao | date:'dd/MM/yyyy HH:mm' }}</p>
                     </div>
 
-                    <p>Paciente necessita de um acompanhamento alimentar.</p>
-                </div>
-
-                <div class="demanda" style="border-color: green;">
-                    <div class="cabecalho">
-                        <h2>Consulta Cardiologia - Dr Fabrício</h2>
-                        <p>15/12/2025</p>
-                    </div>
-
-                    <p>Paciente com dor no peito.</p>
-                </div>
-            <!-- } -->
+                    <p class="justificativa" [ngStyle]="{'border-color': getStatusColor(item.statusComparecimento)}">
+                        <strong>Justificativa clínica:</strong><br>
+                        {{ item.justificativa }}
+                    </p>
+                </section>
+            }
         </section>
     </div>
 </main>

@@ -125,6 +125,13 @@ main {
                 padding: 15px;
                 margin: 15px;
                 margin-bottom: 30px;
+                // background: white;
+                // padding: 25px;
+                // border-radius: 18px;
+                // box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+                // border-left: 6px solid #0066ff;
+                // animation: aparecer 0.3s ease;
+                // margin-bottom: 50px;
 
                 p {
                     font-size: 18px;
@@ -135,6 +142,39 @@ main {
                     flex-direction: row;
                     justify-content: space-between;
                 }
+            }
+
+            .fila-card {
+                background: white;
+                padding: 25px;
+                border-radius: 18px;
+                box-shadow: 0px 4px 16px rgba(0,0,0,0.08);
+                border-left: 6px solid #0066ff;
+                animation: aparecer 0.3s ease;
+                margin-bottom: 50px;
+            }
+
+            .fila-card h2 {
+                margin: 0;
+                font-size: 25px;
+                color: #0066ff;
+                margin-bottom: 15px;
+            }
+
+            .info-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+
+            .justificativa {
+                background: #f7f7f7bb;
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-size: 18px;
+                margin-bottom: 20px;
+                border-left: 4px solid #0066ff;
             }
         }
     }
