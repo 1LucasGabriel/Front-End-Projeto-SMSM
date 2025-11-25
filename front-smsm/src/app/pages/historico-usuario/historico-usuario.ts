@@ -50,7 +50,7 @@ export class HistoricoUsuario {
   public getStatusColor(status: string) {
     switch(status.toLowerCase()) {
       case 'pendente':
-        return 'yellow';
+        return '#f7d404';
       case 'em andamento':
         return 'blue';
       case 'concluído':

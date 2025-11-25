@@ -97,7 +97,7 @@ export class ListaDemandas implements OnInit {
   public getStatusColor(status: string) {
     switch(status.toLowerCase()) {
       case 'pendente':
-        return 'yellow';
+        return '#f7d404';
       case 'agendado':
         return 'blue';
       case 'concluído':

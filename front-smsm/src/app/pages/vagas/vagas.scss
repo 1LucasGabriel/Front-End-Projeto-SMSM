@@ -5,7 +5,8 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100dvh;
+    min-height: 100dvh;
+    max-height: auto;
     max-width: 100%;
     position: relative; 
     z-index: 0; 
@@ -15,7 +16,7 @@ main {
     aside.header {
         background-color: #0F65A2;
         width: 100%;
-        min-height: 15%;
+        min-height: 150px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.534);
         display: flex;
         padding-left: 50px;
